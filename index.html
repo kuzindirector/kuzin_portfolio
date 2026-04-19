@@ -15,6 +15,152 @@
             text-transform: uppercase;
             overflow-x: hidden;
         }
+        
+        /* Главный экран */
+        header {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: #000;
+            position: relative;
+        }
+        h1 { 
+            font-size: 15vw; 
+            line-height: 0.85; 
+            margin: 0; 
+            letter-spacing: -2px;
+        }
+        .red { color: #ff0000; }
+
+        /* Блоки с фильмами */
+        .project {
+            height: 100vh;
+            border-top: 1px solid #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #000;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .year { 
+            color: #ff0000; 
+            font-size: 1.5rem; 
+            margin-bottom: 10px;
+            z-index: 2;
+        }
+        
+        .title { 
+            font-size: 7vw; 
+            text-align: center; 
+            margin: 0; 
+            line-height: 1;
+            z-index: 2;
+            max-width: 90%;
+        }
+
+        /* Заглушки под фото (потом вставим сюда твои кадры) */
+        .bg-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.4), rgba(0,0,0,0.8));
+            z-index: 1;
+        }
+
+        /* Футер */
+        footer { 
+            padding: 150px 20px; 
+            text-align: center; 
+            background: #fff; 
+            color: #000; 
+        }
+        .mail { 
+            font-size: 8vw; 
+            color: #000; 
+            text-decoration: none; 
+            font-weight: 900; 
+            display: block; 
+            margin-top: 20px;
+            word-break: break-all;
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 20vw; }
+            .title { font-size: 12vw; }
+            .mail { font-size: 10vw; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>КИРИЛЛ<br><span class="red">КУЗИН</span></h1>
+    </header>
+
+    <section class="project">
+        <div class="year">2025</div>
+        <h2 class="title">ПИСЬМО ДЕДУ МОРОЗУ</h2>
+        <div class="bg-overlay"></div>
+    </section>
+
+    <section class="project">
+        <div class="year">2025</div>
+        <h2 class="title">СЕРГИЙ ПРОТИВ НЕЧИСТИ: ШУРАЛЕ</h2>
+        <div class="bg-overlay"></div>
+    </section>
+
+    <section class="project">
+        <div class="year">2024</div>
+        <h2 class="title">СЕРГИЙ ПРОТИВ НЕЧИСТИ: ЯГА</h2>
+        <div class="bg-overlay"></div>
+    </section>
+
+    <section class="project">
+        <div class="year">2013</div>
+        <h2 class="title">ЗАЛЁТЧИКИ</h2>
+        <div class="bg-overlay"></div>
+    </section>
+
+    <section class="project">
+        <div class="year">2010</div>
+        <h2 class="title">САМЫЙ ЛУЧШИЙ ФИЛЬМ 3-ДЭ</h2>
+        <div class="bg-overlay"></div>
+    </section>
+
+    <section class="project">
+        <div class="year">2005</div>
+        <h2 class="title">КЛУБ</h2>
+        <div class="bg-overlay"></div>
+    </section>
+
+    <footer>
+        <div style="font-size: 1.2rem; font-weight: bold;">ЕСТЬ ПРОЕКТ?</div>
+        <a href="mailto:director@kuzin.pro" class="mail">KUZIN.DIRECTOR</a>
+    </footer>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>КИРИЛЛ КУЗИН | РЕЖИССЕР</title>
+    <style>
+        * { box-sizing: border-box; }
+        body, html {
+            margin: 0; 
+            padding: 0;
+            background-color: #000 !important;
+            color: #fff;
+            font-family: 'Arial Black', 'Arial', sans-serif;
+            text-transform: uppercase;
+            overflow-x: hidden;
+        }
         header {
             height: 100vh;
             display: flex;
