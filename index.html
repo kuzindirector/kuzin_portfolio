@@ -21,7 +21,7 @@
             overflow-x: hidden;
         }
 
-        /* ПРОФЕССИОНАЛЬНОЕ КИНОЗЕРНО */
+        /* ПРОФЕССИОНАЛЬНОЕ КИНОЗЕРНО (БЕЗ ОШИБОК) */
         .grain {
             position: fixed; top: -50%; left: -50%; width: 200%; height: 200%;
             background-image: url("data:image/svg+xml,%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
@@ -58,19 +58,20 @@
 
         .info { position: relative; z-index: 20; text-align: center; width: 90%; }
         .year { font-size: 1.4rem; color: var(--accent); letter-spacing: 12px; margin-bottom: 10px; }
-        .title { font-size: 8vw; margin: 0; line-height: 0.9; letter-spacing: -4px; color: var(--text); transition: 0.3s; }
-        .project:hover .title { color: #fff; }
+        .title { font-size: 8vw; margin: 0; line-height: 0.9; letter-spacing: -4px; color: var(--text); }
+        
+        .tag { 
+            font-size: 1.2rem; background: var(--accent); color: #fff; 
+            padding: 2px 15px; margin-left: 20px; vertical-align: middle; 
+            letter-spacing: 2px;
+        }
 
-        /* ФУТЕР С ИСПРАВЛЕННЫМ РАЗМЕРОМ */
         footer {
             position: relative; z-index: 30; background: var(--text); color: #000;
             padding: 120px 5%; text-align: center;
         }
-        .cta-call { font-size: 4vw; margin-bottom: 15px; letter-spacing: -1px; }
-        .mail-link { 
-            font-size: 9.5vw; /* Подобрали размер, чтобы DIRECTOR.KUZIN не вылетал */
-            color: #000; text-decoration: none; line-height: 0.8; display: block; 
-        }
+        .cta-call { font-size: 4vw; margin-bottom: 10px; letter-spacing: -1px; }
+        .mail-link { font-size: 9.5vw; color: #000; text-decoration: none; line-height: 0.8; display: block; }
         .mail-link:hover { color: var(--accent); }
 
         a { text-decoration: none; color: inherit; }
@@ -79,7 +80,6 @@
             h1 { font-size: 18vw; }
             .title { font-size: 12vw; }
             .mail-link { font-size: 11vw; }
-            .cta-call { font-size: 6vw; }
         }
     </style>
 </head>
@@ -91,12 +91,18 @@
     </header>
 
     <section class="project">
+        <div class="project-bg" style="background-image: url('https://images.cybersport.ru/images/og-jpg/plain/00/007bb0e8-7ca7-48cd-be3b-58a4a7ff5599.jpg')"></div>
+        <div class="info">
+            <div class="year">2026</div>
+            <h2 class="title">Дубровский. Русский Зорро <span class="tag">скоро</span></h2>
+        </div>
+    </section>
+
+    <section class="project">
         <div class="project-bg" style="background-image: url('https://static.kinoafisha.info/k/trailers/1270/upload/trailers/ca78d28a4ada04ac58f80db9dcb58457.jpg')"></div>
         <div class="info">
             <div class="year">2025</div>
-            <a href="https://www.youtube.com/watch?v=LvN3fe44O5s" target="_blank">
-                <h2 class="title">Письмо Деду Морозу</h2>
-            </a>
+            <a href="https://www.youtube.com/watch?v=LvN3fe44O5s" target="_blank"><h2 class="title">Письмо Деду Морозу</h2></a>
         </div>
     </section>
 
@@ -104,9 +110,7 @@
         <div class="project-bg" style="background-image: url('https://avatars.mds.yandex.net/i?id=da2e1f3979e26dcf54fe4caabc40cfc9_l-7045590-images-thumbs&n=13')"></div>
         <div class="info">
             <div class="year">2025</div>
-            <a href="https://www.youtube.com/watch?v=CITR_Z3nGZM" target="_blank">
-                <h2 class="title">Сергий Против Нечисти</h2>
-            </a>
+            <a href="https://www.youtube.com/watch?v=CITR_Z3nGZM" target="_blank"><h2 class="title">Сергий Против Нечисти: Шурале</h2></a>
         </div>
     </section>
 
@@ -114,9 +118,15 @@
         <div class="project-bg" style="background-image: url('https://www.kino-teatr.ru/movie/kadr/167346/1732161.jpg')"></div>
         <div class="info">
             <div class="year">2024</div>
-            <a href="https://vkvideo.ru/video-62580183_456240141" target="_blank">
-                <h2 class="title">Чёрный Замок</h2>
-            </a>
+            <a href="https://vkvideo.ru/video-62580183_456240141" target="_blank"><h2 class="title">Чёрный Замок</h2></a>
+        </div>
+    </section>
+
+    <section class="project">
+        <div class="project-bg" style="background-image: url('https://avatars.mds.yandex.net/i?id=30fe922f35990e8e5d04bd297416a330_l-10163806-images-thumbs&n=13')"></div>
+        <div class="info">
+            <div class="year">2023</div>
+            <a href="https://vkvideo.ru/video-214727386_456239095" target="_blank"><h2 class="title">Диагноз Везучая</h2></a>
         </div>
     </section>
 
@@ -124,9 +134,79 @@
         <div class="project-bg" style="background-image: url('https://static.okko.tv/images/v4/3036ff41-dc97-420e-ac56-264b9665bcb5?presetId=4000&width=1200&height=630&scale=1&quality=80')"></div>
         <div class="info">
             <div class="year">2023</div>
-            <a href="https://youtu.be/GWTjOlPXw2I" target="_blank">
-                <h2 class="title">Там, где цветёт полынь</h2>
-            </a>
+            <a href="https://youtu.be/GWTjOlPXw2I" target="_blank"><h2 class="title">Там, где цветёт полынь</h2></a>
+        </div>
+    </section>
+
+    <section class="project">
+        <div class="project-bg" style="background-image: url('https://cdn.mirage.ru/images/film/5000/big/s5398.jpg')"></div>
+        <div class="info">
+            <div class="year">2023</div>
+            <a href="https://youtu.be/zclECZAelK4" target="_blank"><h2 class="title">Сергий Против Нечисти. Шабаш</h2></a>
+        </div>
+    </section>
+
+    <section class="project">
+        <div class="project-bg" style="background-image: url('https://www.kino-teatr.ru/movie/poster/149168/115123.jpg')"></div>
+        <div class="info">
+            <div class="year">2022</div>
+            <a href="https://www.youtube.com/watch?v=6lZa1POZ4Vs" target="_blank"><h2 class="title">Шестнадцать +</h2></a>
+        </div>
+    </section>
+
+    <section class="project">
+        <div class="project-bg" style="background-image: url('https://toposrednik.ru/wp-content/uploads/2023/01/zz371-1-1024x715-1.jpg')"></div>
+        <div class="info">
+            <div class="year">2022—...</div>
+            <a href="https://youtu.be/fX2WtRy5dEA" target="_blank"><h2 class="title">Сергий Против Нечисти</h2></a>
+        </div>
+    </section>
+
+    <section class="project">
+        <div class="project-bg" style="background-image: url('https://irecommend.ru/sites/default/files/imagecache/copyright1/user-images/237759/lGb6t9ade5ve4gP4QlvxeQ.jpg')"></div>
+        <div class="info">
+            <div class="year">2015</div>
+            <a href="https://www.youtube.com/watch?v=jXCbz1mbPD8" target="_blank"><h2 class="title">Лондонград</h2></a>
+        </div>
+    </section>
+
+    <section class="project">
+        <div class="project-bg" style="background-image: url('https://avatars.mds.yandex.net/get-kinopoisk-image/1777765/f614509f-ac41-4ce9-b770-8e9c6b27f9b9/1920x')"></div>
+        <div class="info">
+            <div class="year">2015</div>
+            <a href="https://www.youtube.com/watch?v=Drj1002kxMY" target="_blank"><h2 class="title">Война Полов</h2></a>
+        </div>
+    </section>
+
+    <section class="project">
+        <div class="project-bg" style="background-image: url('https://irecommend.ru/sites/default/files/imagecache/copyright1/user-images/176432/Yr0JsnZDiICJSjEM36NRyw.jpg')"></div>
+        <div class="info">
+            <div class="year">2014</div>
+            <a href="https://www.youtube.com/watch?v=kr8xmDCTDCg" target="_blank"><h2 class="title">Залётчики</h2></a>
+        </div>
+    </section>
+
+    <section class="project">
+        <div class="project-bg" style="background-image: url('https://avatars.mds.yandex.net/i?id=b6d1ca19eddc41e8a8f60113832a3fc3_l-12652282-images-thumbs&n=13')"></div>
+        <div class="info">
+            <div class="year">2011</div>
+            <h2 class="title">Молодёжка <span class="tag">ПИЛОТ</span></h2>
+        </div>
+    </section>
+
+    <section class="project">
+        <div class="project-bg" style="background-image: url('https://cdn.fishki.net/upload/users/2021/02/05/617549/caeb8ab4b08f0d150a126ef100e1727d.png')"></div>
+        <div class="info">
+            <div class="year">2011</div>
+            <a href="https://www.youtube.com/watch?v=uDE5jCv_De0" target="_blank"><h2 class="title">Самый Лучший Фильм 3Дэ</h2></a>
+        </div>
+    </section>
+
+    <section class="project">
+        <div class="project-bg" style="background-image: url('https://media.kg-portal.ru/images/samyjluchshijfilm/samyjluchshijfilm_28.jpg')"></div>
+        <div class="info">
+            <div class="year">2008</div>
+            <a href="https://www.youtube.com/watch?v=-UqeszaetkM" target="_blank"><h2 class="title">Самый Лучший Фильм</h2></a>
         </div>
     </section>
 
@@ -134,15 +214,13 @@
         <div class="project-bg" style="background-image: url('https://irecommend.ru/sites/default/files/imagecache/copyright1/user-images/2377857/k33GFX5LWP4cDfDM7kHd8Q.jpeg')"></div>
         <div class="info">
             <div class="year">2005</div>
-            <a href="https://www.youtube.com/watch?v=vf7s1_d90CM" target="_blank">
-                <h2 class="title">Клуб</h2>
-            </a>
+            <a href="https://www.youtube.com/watch?v=vf7s1_d90CM" target="_blank"><h2 class="title">Клуб</h2></a>
         </div>
     </section>
 
     <footer>
-        <div class="cta-call">ЗВОНИ: +7 903 769 72 43</div>
-        <a href="mailto:bildyev@gmail.com" class="mail-link">ПИШИ</a>
+        <div class="cta-call">TEL: +7 903 769 72 43</div>
+        <a href="mailto:bildyev@gmail.com" class="mail-link">KUZIN.DIRECTOR</a>
     </footer>
 
 </body>
