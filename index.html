@@ -21,6 +21,7 @@
             overflow-x: hidden;
         }
 
+        /* ПРОФЕССИОНАЛЬНОЕ КИНОЗЕРНО */
         .grain {
             position: fixed; top: -50%; left: -50%; width: 200%; height: 200%;
             background-image: url("data:image/svg+xml,%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
@@ -55,36 +56,30 @@
 
         .project:hover .project-bg { filter: grayscale(0) brightness(0.4); transform: scale(1.05); }
 
-        .video-container {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            z-index: 25; display: none; background: #000;
-        }
-
-        .video-container iframe { width: 100%; height: 100%; border: none; }
-
-        .close-video {
-            position: absolute; top: 20px; right: 20px; z-index: 30;
-            background: var(--accent); color: #fff; padding: 10px 20px;
-            cursor: pointer; font-size: 1rem; border: none; font-family: inherit;
-        }
-
         .info { position: relative; z-index: 20; text-align: center; width: 90%; }
         .year { font-size: 1.4rem; color: var(--accent); letter-spacing: 12px; margin-bottom: 10px; }
-        .title { font-size: 8vw; margin: 0; line-height: 0.9; letter-spacing: -4px; color: var(--text); cursor: pointer; }
-        .title:hover { color: var(--accent); }
+        .title { font-size: 8vw; margin: 0; line-height: 0.9; letter-spacing: -4px; color: var(--text); transition: 0.3s; }
+        .project:hover .title { color: #fff; }
 
+        /* ФУТЕР С ИСПРАВЛЕННЫМ РАЗМЕРОМ */
         footer {
             position: relative; z-index: 30; background: var(--text); color: #000;
-            padding: 100px 5%; text-align: center;
+            padding: 120px 5%; text-align: center;
         }
-        .cta-call { font-size: 4vw; margin-bottom: 10px; }
-        .mail-link { font-size: 8vw; color: #000; text-decoration: none; line-height: 0.8; display: block; word-wrap: break-word; }
+        .cta-call { font-size: 4vw; margin-bottom: 15px; letter-spacing: -1px; }
+        .mail-link { 
+            font-size: 9.5vw; /* Подобрали размер, чтобы DIRECTOR.KUZIN не вылетал */
+            color: #000; text-decoration: none; line-height: 0.8; display: block; 
+        }
         .mail-link:hover { color: var(--accent); }
+
+        a { text-decoration: none; color: inherit; }
 
         @media (max-width: 600px) {
             h1 { font-size: 18vw; }
             .title { font-size: 12vw; }
-            .mail-link { font-size: 10vw; }
+            .mail-link { font-size: 11vw; }
+            .cta-call { font-size: 6vw; }
         }
     </style>
 </head>
@@ -97,45 +92,58 @@
 
     <section class="project">
         <div class="project-bg" style="background-image: url('https://static.kinoafisha.info/k/trailers/1270/upload/trailers/ca78d28a4ada04ac58f80db9dcb58457.jpg')"></div>
-        <div class="video-container" id="video-dedmoroz">
-            <button class="close-video" onclick="closeVideo('video-dedmoroz')">ЗАКРЫТЬ [X]</button>
-            <iframe src="https://www.youtube.com/embed/LvN3fe44O5s?autoplay=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
         <div class="info">
             <div class="year">2025</div>
-            <h2 class="title" onclick="openVideo('video-dedmoroz')">Письмо Деду Морозу</h2>
+            <a href="https://www.youtube.com/watch?v=LvN3fe44O5s" target="_blank">
+                <h2 class="title">Письмо Деду Морозу</h2>
+            </a>
         </div>
     </section>
 
     <section class="project">
         <div class="project-bg" style="background-image: url('https://avatars.mds.yandex.net/i?id=da2e1f3979e26dcf54fe4caabc40cfc9_l-7045590-images-thumbs&n=13')"></div>
-        <div class="video-container" id="video-sergiy">
-            <button class="close-video" onclick="closeVideo('video-sergiy')">ЗАКРЫТЬ [X]</button>
-            <iframe src="https://www.youtube.com/embed/CITR_Z3nGZM?autoplay=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
         <div class="info">
             <div class="year">2025</div>
-            <h2 class="title" onclick="openVideo('video-sergiy')">Сергий Против Нечисти</h2>
+            <a href="https://www.youtube.com/watch?v=CITR_Z3nGZM" target="_blank">
+                <h2 class="title">Сергий Против Нечисти</h2>
+            </a>
+        </div>
+    </section>
+
+    <section class="project">
+        <div class="project-bg" style="background-image: url('https://www.kino-teatr.ru/movie/kadr/167346/1732161.jpg')"></div>
+        <div class="info">
+            <div class="year">2024</div>
+            <a href="https://vkvideo.ru/video-62580183_456240141" target="_blank">
+                <h2 class="title">Чёрный Замок</h2>
+            </a>
+        </div>
+    </section>
+
+    <section class="project">
+        <div class="project-bg" style="background-image: url('https://static.okko.tv/images/v4/3036ff41-dc97-420e-ac56-264b9665bcb5?presetId=4000&width=1200&height=630&scale=1&quality=80')"></div>
+        <div class="info">
+            <div class="year">2023</div>
+            <a href="https://youtu.be/GWTjOlPXw2I" target="_blank">
+                <h2 class="title">Там, где цветёт полынь</h2>
+            </a>
+        </div>
+    </section>
+
+    <section class="project">
+        <div class="project-bg" style="background-image: url('https://irecommend.ru/sites/default/files/imagecache/copyright1/user-images/2377857/k33GFX5LWP4cDfDM7kHd8Q.jpeg')"></div>
+        <div class="info">
+            <div class="year">2005</div>
+            <a href="https://www.youtube.com/watch?v=vf7s1_d90CM" target="_blank">
+                <h2 class="title">Клуб</h2>
+            </a>
         </div>
     </section>
 
     <footer>
-        <div class="cta-call">TEL: +7 903 769 72 43</div>
-        <a href="mailto:bildyev@gmail.com" class="mail-link">KUZIN.DIRECTOR</a>
+        <div class="cta-call">ЗВОНИ: +7 903 769 72 43</div>
+        <a href="mailto:bildyev@gmail.com" class="mail-link">ПИШИ</a>
     </footer>
 
-    <script>
-        function openVideo(id) {
-            document.getElementById(id).style.display = 'block';
-        }
-        function closeVideo(id) {
-            var container = document.getElementById(id);
-            var iframe = container.querySelector('iframe');
-            var url = iframe.src;
-            iframe.src = ''; // Останавливаем видео при закрытии
-            iframe.src = url; 
-            container.style.display = 'none';
-        }
-    </script>
 </body>
 </html>
