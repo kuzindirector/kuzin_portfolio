@@ -3,218 +3,252 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>КИРИЛЛ КУЗИН | РЕЖИССЕР</title>
+    <title>KIRILL KUZIN | DIRECTOR'S CUT</title>
     <style>
-        * { box-sizing: border-box; }
+        :root {
+            --bg: #000;
+            --accent: #ff0000;
+            --text: #fff;
+        }
+
         body, html {
-            margin: 0; 
-            padding: 0;
-            background-color: #000 !important;
-            color: #fff;
-            font-family: 'Arial Black', 'Arial', sans-serif;
+            margin: 0; padding: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Arial Black', 'Arial Bold', sans-serif;
             text-transform: uppercase;
-            overflow-x: hidden;
+            font-weight: 900;
         }
-        
-        /* Главный экран */
+
+        .grain {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 1000; pointer-events: none; opacity: 0.05;
+            background-image: url('https://media.giphy.com/media/oEI9uWUicL9RK/giphy.gif');
+        }
+
         header {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            background: #000;
-            position: relative;
+            height: 100vh; display: flex; align-items: center; justify-content: center;
+            position: sticky; top: 0; z-index: 0; background: var(--bg);
         }
-        h1 { 
-            font-size: 15vw; 
-            line-height: 0.85; 
-            margin: 0; 
-            letter-spacing: -2px;
-        }
-        .red { color: #ff0000; }
 
-        /* Блоки с фильмами */
+        h1 { font-size: 13vw; line-height: 0.8; text-align: center; margin: 0; letter-spacing: -6px; }
+
         .project {
-            height: 100vh;
-            border-top: 1px solid #333;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background: #000;
-            padding: 20px;
-            position: relative;
-            overflow: hidden;
+            position: relative; height: 100vh; width: 100%; display: flex;
+            align-items: center; justify-content: center; overflow: hidden;
+            border-bottom: 4px solid var(--text); z-index: 10; background: var(--bg);
         }
+
+        .project-bg {
+            position: absolute; width: 100%; height: 100%;
+            background-size: cover; background-position: center;
+            filter: grayscale(1) brightness(0.25);
+            transition: 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .project:hover .project-bg {
+            filter: grayscale(0) brightness(0.4);
+            transform: scale(1.05);
+        }
+
+        .info { position: relative; z-index: 20; text-align: center; width: 90%; }
         
-        .year { 
-            color: #ff0000; 
-            font-size: 1.5rem; 
-            margin-bottom: 10px;
-            z-index: 2;
-        }
+        .year { font-size: 1.4rem; color: var(--accent); letter-spacing: 12px; margin-bottom: 10px; }
         
-        .title { 
-            font-size: 7vw; 
-            text-align: center; 
-            margin: 0; 
-            line-height: 1;
-            z-index: 2;
-            max-width: 90%;
+        .title {
+            font-size: 8vw; margin: 0; line-height: 0.9; letter-spacing: -4px;
+            color: var(--text);
         }
 
-        /* Заглушки под фото (потом вставим сюда твои кадры) */
-        .bg-overlay {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.4), rgba(0,0,0,0.8));
-            z-index: 1;
+        .tag { 
+            font-size: 1.2rem; background: var(--accent); color: #fff; 
+            padding: 2px 15px; margin-left: 20px; vertical-align: middle; 
+            letter-spacing: 2px;
         }
 
-        /* Футер */
-        footer { 
-            padding: 150px 20px; 
-            text-align: center; 
-            background: #fff; 
-            color: #000; 
-        }
-        .mail { 
-            font-size: 8vw; 
-            color: #000; 
-            text-decoration: none; 
-            font-weight: 900; 
-            display: block; 
-            margin-top: 20px;
-            word-break: break-all;
+        footer {
+            position: relative; z-index: 30; background: var(--text); color: #000;
+            padding: 140px 5%; text-align: center;
         }
 
-        @media (max-width: 600px) {
-            h1 { font-size: 20vw; }
-            .title { font-size: 12vw; }
-            .mail { font-size: 10vw; }
+        .cta-call { font-size: 5vw; margin-bottom: 10px; letter-spacing: -1px; }
+
+        .mail-link { 
+            font-size: 11vw; color: #000; text-decoration: none; 
+            line-height: 0.8; display: block;
         }
+
+        .mail-link:hover { color: var(--accent); }
+
     </style>
 </head>
 <body>
+    <div class="grain"></div>
 
     <header>
-        <h1>КИРИЛЛ<br><span class="red">КУЗИН</span></h1>
+        <h1>КИРИЛЛ<br><span style="color:var(--accent)">КУЗИН</span></h1>
     </header>
 
-    <section class="project">
-        <div class="year">2025</div>
-        <h2 class="title">ПИСЬМО ДЕДУ МОРОЗУ</h2>
-        <div class="bg-overlay"></div>
+   <section class="project">
+        <div class="project-bg" style="background-image: url('https://images.cybersport.ru/images/og-jpg/plain/00/007bb0e8-7ca7-48cd-be3b-58a4a7ff5599.jpg')"></div>
+        <div class="info">
+            <div class="year">2026</div>
+            <h2 class="title">Дубровский. Русский Зорро <span class="tag">скоро</span></h2>
+        </div>
     </section>
 
     <section class="project">
-        <div class="year">2025</div>
-        <h2 class="title">СЕРГИЙ ПРОТИВ НЕЧИСТИ: ШУРАЛЕ</h2>
-        <div class="bg-overlay"></div>
+        <div class="project-bg" style="background-image: url('https://static.kinoafisha.info/k/trailers/1270/upload/trailers/ca78d28a4ada04ac58f80db9dcb58457.jpg')"></div>
+        <div class="info">
+            <div class="year">2025</div>
+            <a href="https://www.youtube.com/watch?v=LvN3fe44O5s" target="_blank" style="text-decoration: none;"> 
+                <h2 class="title">Письмо Деду Морозу</h2> 
+            </a>
+        </div>
     </section>
 
     <section class="project">
-        <div class="year">2024</div>
-        <h2 class="title">СЕРГИЙ ПРОТИВ НЕЧИСТИ: ЯГА</h2>
-        <div class="bg-overlay"></div>
+        <div class="project-bg" style="background-image: url('https://avatars.mds.yandex.net/i?id=da2e1f3979e26dcf54fe4caabc40cfc9_l-7045590-images-thumbs&n=13')"></div>
+        <div class="info">
+            <div class="year">2025</div>
+            <a href="https://www.youtube.com/watch?v=CITR_Z3nGZM" target="_blank" style="text-decoration: none;"> 
+                <h2 class="title">Сергий Против Нечисти: Шурале</h2> 
+            </a>
+        </div>
     </section>
 
     <section class="project">
-        <div class="year">2013</div>
-        <h2 class="title">ЗАЛЁТЧИКИ</h2>
-        <div class="bg-overlay"></div>
+        <div class="project-bg" style="background-image: url('https://www.kino-teatr.ru/movie/kadr/167346/1732161.jpg')"></div>
+        <div class="info">
+            <div class="year">2024</div>
+            <a href="https://vkvideo.ru/video-62580183_456240141?list=ln-wKYlVEORtGtHxQmqD7" target="_blank" style="text-decoration: none;"> 
+                <h2 class="title">Чёрный Замок</h2> 
+            </a>
+        </div>
     </section>
 
     <section class="project">
-        <div class="year">2010</div>
-        <h2 class="title">САМЫЙ ЛУЧШИЙ ФИЛЬМ 3-ДЭ</h2>
-        <div class="bg-overlay"></div>
+        <div class="project-bg" style="background-image: url('https://avatars.mds.yandex.net/i?id=30fe922f35990e8e5d04bd297416a330_l-10163806-images-thumbs&n=13')"></div>
+        <div class="info">
+            <div class="year">2023</div>
+            <a href="https://vkvideo.ru/video-214727386_456239095?list=ln-cULgbZJxhSnnEugDCJ" target="_blank" style="text-decoration: none;"> 
+                <h2 class="title">Диагноз Везучая</h2> 
+            </a>
+        </div>
     </section>
 
     <section class="project">
-        <div class="year">2005</div>
-        <h2 class="title">КЛУБ</h2>
-        <div class="bg-overlay"></div>
+        <div class="project-bg" style="background-image: url('https://static.okko.tv/images/v4/3036ff41-dc97-420e-ac56-264b9665bcb5?presetId=4000&width=1200&height=630&scale=1&quality=80')"></div>
+        <div class="info">
+            <div class="year">2023</div>
+            <a href="https://youtu.be/GWTjOlPXw2I?si=ca1V5Hz2Xleg7rrV" target="_blank" style="text-decoration: none;"> 
+                <h2 class="title">Там, где цветёт полынь</h2> 
+            </a>
+        </div>
+    </section>
+
+    <section class="project">
+        <div class="project-bg" style="background-image: url('https://cdn.mirage.ru/images/film/5000/big/s5398.jpg')"></div>
+        <div class="info">
+            <div class="year">2023</div>
+            <a href="https://youtu.be/zclECZAelK4?si=rVIt7rv5_vtnFFiD" target="_blank" style="text-decoration: none;"> 
+                <h2 class="title">Сергий Против Нечисти. Шабаш</h2> 
+            </a>
+        </div>
+    </section>
+
+    <section class="project">
+        <div class="project-bg" style="background-image: url('https://www.kino-teatr.ru/movie/poster/149168/115123.jpg')"></div>
+        <div class="info">
+            <div class="year">2022</div>
+            <a href="https://www.youtube.com/watch?v=6lZa1POZ4Vs" target="_blank" style="text-decoration: none;"> 
+                <h2 class="title">Шестнадцать +</h2> 
+            </a>
+        </div>
+    </section>
+
+    <section class="project">
+        <div class="project-bg" style="background-image: url('https://toposrednik.ru/wp-content/uploads/2023/01/zz371-1-1024x715-1.jpg')"></div>
+        <div class="info">
+            <div class="year">2022—...</div>
+            <a href="https://youtu.be/fX2WtRy5dEA?si=D9LqW7PtTh7XCZt7" target="_blank" style="text-decoration: none;"> 
+                <h2 class="title">Сергий Против Нечисти</h2> 
+            </a>
+        </div>
+    </section>
+
+    <section class="project">
+        <div class="project-bg" style="background-image: url('https://irecommend.ru/sites/default/files/imagecache/copyright1/user-images/237759/lGb6t9ade5ve4gP4QlvxeQ.jpg')"></div>
+        <div class="info">
+            <div class="year">2015</div>
+            <a href="https://www.youtube.com/watch?v=jXCbz1mbPD8&t=3s" target="_blank" style="text-decoration: none;"> 
+                <h2 class="title">Лондонград</h2> 
+            </a>
+        </div>
+    </section>
+
+    <section class="project">
+        <div class="project-bg" style="background-image: url('https://avatars.mds.yandex.net/get-kinopoisk-image/1777765/f614509f-ac41-4ce9-b770-8e9c6b27f9b9/1920x')"></div>
+        <div class="info">
+            <div class="year">2015</div>
+            <a href="https://www.youtube.com/watch?v=Drj1002kxMY" target="_blank" style="text-decoration: none;"> 
+                <h2 class="title">Война Полов</h2> 
+            </a>
+        </div>
+    </section>
+
+    <section class="project">
+        <div class="project-bg" style="background-image: url('https://irecommend.ru/sites/default/files/imagecache/copyright1/user-images/176432/Yr0JsnZDiICJSjEM36NRyw.jpg')"></div>
+        <div class="info">
+            <div class="year">2014</div>
+            <a href="https://www.youtube.com/watch?v=kr8xmDCTDCg" target="_blank" style="text-decoration: none;"> 
+                <h2 class="title">Залётчики</h2> 
+            </a>
+        </div>
+    </section>
+
+    <section class="project">
+        <div class="project-bg" style="background-image: url('https://avatars.mds.yandex.net/i?id=b6d1ca19eddc41e8a8f60113832a3fc3_l-12652282-images-thumbs&n=13')"></div>
+        <div class="info">
+            <div class="year">2011</div>
+            <h2 class="title">Молодёжка <span class="tag">ПИЛОТ</span></h2>
+        </div>
+    </section>
+
+    <section class="project">
+        <div class="project-bg" style="background-image: url('https://cdn.fishki.net/upload/users/2021/02/05/617549/caeb8ab4b08f0d150a126ef100e1727d.png')"></div>
+        <div class="info">
+            <div class="year">2011</div>
+            <a href="https://www.youtube.com/watch?v=uDE5jCv_De0" target="_blank" style="text-decoration: none;"> 
+                <h2 class="title">Самый Лучший Фильм 3Дэ</h2> 
+            </a>
+        </div>
+    </section>
+
+    <section class="project">
+        <div class="project-bg" style="background-image: url('https://media.kg-portal.ru/images/samyjluchshijfilm/samyjluchshijfilm_28.jpg')"></div>
+        <div class="info">
+            <div class="year">2008</div>
+            <a href="https://www.youtube.com/watch?v=-UqeszaetkM" target="_blank" style="text-decoration: none;"> 
+                <h2 class="title">Самый Лучший Фильм</h2> 
+            </a>
+        </div>
+    </section>
+
+    <section class="project">
+        <div class="project-bg" style="background-image: url('https://irecommend.ru/sites/default/files/imagecache/copyright1/user-images/2377857/k33GFX5LWP4cDfDM7kHd8Q.jpeg')"></div>
+        <div class="info">
+            <div class="year">2005</div>
+            <a href="https://www.youtube.com/watch?v=vf7s1_d90CM" target="_blank" style="text-decoration: none;"> 
+                <h2 class="title">Клуб</h2> 
+            </a>
+        </div>
     </section>
 
     <footer>
-        <div style="font-size: 1.2rem; font-weight: bold;">ЕСТЬ ПРОЕКТ?</div>
-        <a href="mailto:director@kuzin.pro" class="mail">KUZIN.DIRECTOR</a>
+        <div class="cta-call">phone: +79037697243</div>
+        <a href="mailto:bildyev@gmail.com" class="mail-link">DIRECTOR.KUZIN</a>
     </footer>
 
-</body>
-</html><!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>КИРИЛЛ КУЗИН | РЕЖИССЕР</title>
-    <style>
-        * { box-sizing: border-box; }
-        body, html {
-            margin: 0; 
-            padding: 0;
-            background-color: #000 !important;
-            color: #fff;
-            font-family: 'Arial Black', 'Arial', sans-serif;
-            text-transform: uppercase;
-            overflow-x: hidden;
-        }
-        header {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            background: #000;
-        }
-        h1 { font-size: 15vw; line-height: 0.8; margin: 0; letter-spacing: -5px; }
-        .red { color: #ff0000; }
-        .project {
-            height: 100vh;
-            border-top: 5px solid #fff;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background: #000;
-            padding: 20px;
-        }
-        .year { color: #ff0000; font-size: 2rem; margin-bottom: 10px; }
-        .title { font-size: 8vw; text-align: center; margin: 0; line-height: 1; }
-        footer { 
-            padding: 100px 20px; 
-            text-align: center; 
-            background: #fff; 
-            color: #000; 
-        }
-        .mail { font-size: 7vw; color: #000; text-decoration: none; font-weight: 900; display: block; margin-top: 20px; }
-    </style>
-</head>
-<body>
-    <header>
-        <h1>КИРИЛЛ<br><span class="red">КУЗИН</span></h1>
-    </header>
-
-    <section class="project">
-        <div class="year">2025</div>
-        <h2 class="title">ПИСЬМО ДЕДУ МОРОЗУ</h2>
-    </section>
-
-    <section class="project">
-        <div class="year">2025</div>
-        <h2 class="title">СЕРГИЙ ПРОТИВ НЕЧИСТИ</h2>
-    </section>
-
-    <section class="project">
-        <div class="year">2005</div>
-        <h2 class="title">КЛУБ</h2>
-    </section>
-
-    <footer>
-        <div style="font-size: 1.5rem;">ЕСТЬ РАБОТА? ПИШИ!</div>
-        <a href="mailto:director@example.com" class="mail">KUZIN.DIRECTOR</a>
-    </footer>
 </body>
 </html>
