@@ -5,227 +5,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>КИРИЛЛ КУЗИН | РЕЖИССЕР</title>
     <style>
+        * { box-sizing: border-box; }
+        body, html {
+            margin: 0; 
+            padding: 0;
+            background-color: #000 !important;
+            color: #fff;
+            font-family: 'Arial Black', 'Arial', sans-serif;
+            text-transform: uppercase;
+            overflow-x: hidden;
+        }
+        header {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: #000;
+        }
+        h1 { font-size: 15vw; line-height: 0.8; margin: 0; letter-spacing: -5px; }
+        .red { color: #ff0000; }
+        .project {
+            height: 100vh;
+            border-top: 5px solid #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #000;
+            padding: 20px;
+        }
+        .year { color: #ff0000; font-size: 2rem; margin-bottom: 10px; }
+        .title { font-size: 8vw; text-align: center; margin: 0; line-height: 1; }
+        footer { 
+            padding: 100px 20px; 
+            text-align: center; 
+            background: #fff; 
+            color: #000; 
+        }
+        .mail { font-size: 7vw; color: #000; text-decoration: none; font-weight: 900; display: block; margin-top: 20px; }
+    </style>
 </head>
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="ru"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;KIRILL KUZIN | DIRECTOR'S CUT&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>:root {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--bg: #000;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--accent: #ff0000;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--text: #fff;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>body, html {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 0; padding: 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: var(--bg);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--text);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>/* ТОТ САМЫЙ ЖИРНЫЙ ARIAL */</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Arial Black', 'Arial Bold', sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-transform: uppercase;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 900;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* Эффект старой кинопленки */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.grain {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>position: fixed; top: 0; left: 0; width: 100%; height: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>z-index: 1000; pointer-events: none; opacity: 0.05;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-image: url('https://media.giphy.com/media/oEI9uWUicL9RK/giphy.gif');</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>header {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>height: 100vh; display: flex; align-items: center; justify-content: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>position: sticky; top: 0; z-index: 0; background: var(--bg);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>h1 { font-size: 13vw; line-height: 0.8; text-align: center; margin: 0; letter-spacing: -6px; }</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.project {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>position: relative; height: 100vh; width: 100%; display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>align-items: center; justify-content: center; overflow: hidden;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-bottom: 4px solid var(--text); z-index: 10; background: var(--bg);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.project-bg {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>position: absolute; width: 100%; height: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-size: cover; background-position: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>filter: grayscale(1) brightness(0.25);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transition: 0.7s cubic-bezier(0.16, 1, 0.3, 1);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.project:hover .project-bg {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>filter: grayscale(0) brightness(0.4);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transform: scale(1.05);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.info { position: relative; z-index: 20; text-align: center; width: 90%; }</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.year { font-size: 1.4rem; color: var(--accent); letter-spacing: 12px; margin-bottom: 10px; }</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.title {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 8vw; margin: 0; line-height: 0.9; letter-spacing: -4px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--text);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.tag {<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.2rem; background: var(--accent); color: #fff;<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 2px 15px; margin-left: 20px; vertical-align: middle;<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>letter-spacing: 2px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* ФИНАЛЬНЫЙ БЛОК */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>footer {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>position: relative; z-index: 30; background: var(--text); color: #000;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 140px 5%; text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.cta-call { font-size: 5vw; margin-bottom: 10px; letter-spacing: -1px; }</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.mail-link {<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 11vw; color: #000; text-decoration: none;<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>line-height: 0.8; display: block;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.mail-link:hover { color: var(--accent); }</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="grain"&gt;&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;header&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h1&gt;КИРИЛЛ&lt;br&gt;&lt;span style="color:var(--accent)"&gt;КУЗИН&lt;/span&gt;&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/header&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">   </span>&lt;section class="project"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="project-bg" style="background-image: url('https://images.cybersport.ru/images/og-jpg/plain/00/007bb0e8-7ca7-48cd-be3b-58a4a7ff5599.jpg')"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="info"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="year"&gt;2026&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 class="title"&gt;Дубровский. Русский Зорро &lt;span class="tag"&gt;скоро&lt;/span&gt;&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="project"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="project-bg" style="background-image: url('https://static.kinoafisha.info/k/trailers/1270/upload/trailers/ca78d28a4ada04ac58f80db9dcb58457.jpg')"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="info"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="year"&gt;2025&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">           </span>&lt;a href="https://www.youtube.com/watch?v=LvN3fe44O5s" target="_blank" style="text-decoration: none;"&gt; &lt;h2 class="title"&gt;Письмо Деду Морозу&lt;/h2&gt; &lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="project"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="project-bg" style="background-image: url('https://avatars.mds.yandex.net/i?id=da2e1f3979e26dcf54fe4caabc40cfc9_l-7045590-images-thumbs&amp;n=13')"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="info"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="year"&gt;2025&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="https://www.youtube.com/watch?v=CITR_Z3nGZM" target="_blank" style="text-decoration: none;"&gt; &lt;h2 class="title"&gt;Сергий Против Нечисти: Шурале&lt;/h2&gt; &lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="project"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="project-bg" style="background-image: url('https://www.kino-teatr.ru/movie/kadr/167346/1732161.jpg')"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="info"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="year"&gt;2024&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;a href="https://vkvideo.ru/video-62580183_456240141?list=ln-wKYlVEORtGtHxQmqD7" target="_blank" style="text-decoration: none;"&gt; &lt;h2 class="title"&gt;Чёрный Замок&lt;/h2&gt; &lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="project"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="project-bg" style="background-image: url('https://avatars.mds.yandex.net/i?id=30fe922f35990e8e5d04bd297416a330_l-10163806-images-thumbs&amp;n=13')"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="info"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="year"&gt;2023&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">           </span>&lt;a href="https://vkvideo.ru/video-214727386_456239095?list=ln-cULgbZJxhSnnEugDCJ" target="_blank" style="text-decoration: none;"&gt; &lt;h2 class="title"&gt;Диагноз Везучая&lt;/h2&gt; &lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="project"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="project-bg" style="background-image: url('https://static.okko.tv/images/v4/3036ff41-dc97-420e-ac56-264b9665bcb5?presetId=4000&amp;width=1200&amp;height=630&amp;scale=1&amp;quality=80')"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="info"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="year"&gt;2023&lt;/div&gt;</p>
-<p class="p1">&lt;a href="https://youtu.be/GWTjOlPXw2I?si=ca1V5Hz2Xleg7rrV" target="_blank" style="text-decoration: none;"&gt; &lt;h2 class="title"&gt;Там, где цветёт полынь&lt;/h2&gt; &lt;/a&gt;<span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="project"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="project-bg" style="background-image: url('https://cdn.mirage.ru/images/film/5000/big/s5398.jpg')"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="info"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="year"&gt;2023&lt;/div&gt;</p>
-<p class="p1">&lt;a href="https://youtu.be/zclECZAelK4?si=rVIt7rv5_vtnFFiD" target="_blank" style="text-decoration: none;"&gt; &lt;h2 class="title"&gt;Сергий Против Нечисти. Шабаш&lt;/h2&gt; &lt;/a&gt;<span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="project"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="project-bg" style="background-image: url('https://www.kino-teatr.ru/movie/poster/149168/115123.jpg')"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="info"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="year"&gt;2022&lt;/div&gt;</p>
-<p class="p1">&lt;a href="https://www.youtube.com/watch?v=6lZa1POZ4Vs" target="_blank" style="text-decoration: none;"&gt; &lt;h2 class="title"&gt;Шестнадцать +&lt;/h2&gt; &lt;/a&gt;<span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="project"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="project-bg" style="background-image: url('https://toposrednik.ru/wp-content/uploads/2023/01/zz371-1-1024x715-1.jpg')"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="info"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="year"&gt;2022—...&lt;/div&gt;</p>
-<p class="p1">&lt;a href="https://youtu.be/fX2WtRy5dEA?si=D9LqW7PtTh7XCZt7" target="_blank" style="text-decoration: none;"&gt; &lt;h2 class="title"&gt;Сергий Против Нечисти&lt;/h2&gt; &lt;/a&gt;<span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="project"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="project-bg" style="background-image: url('https://irecommend.ru/sites/default/files/imagecache/copyright1/user-images/237759/lGb6t9ade5ve4gP4QlvxeQ.jpg')"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="info"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="year"&gt;2015&lt;/div&gt;</p>
-<p class="p1">&lt;a href="https://www.youtube.com/watch?v=jXCbz1mbPD8&amp;t=3s" target="_blank" style="text-decoration: none;"&gt; &lt;h2 class="title"&gt;Лондонград&lt;/h2&gt; &lt;/a&gt;<span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="project"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="project-bg" style="background-image: url('https://avatars.mds.yandex.net/get-kinopoisk-image/1777765/f614509f-ac41-4ce9-b770-8e9c6b27f9b9/1920x')"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="info"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="year"&gt;2015&lt;/div&gt;</p>
-<p class="p1">&lt;a href="https://www.youtube.com/watch?v=Drj1002kxMY" target="_blank" style="text-decoration: none;"&gt; &lt;h2 class="title"&gt;Война Полов&lt;/h2&gt; &lt;/a&gt;<span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="project"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="project-bg" style="background-image: url('https://irecommend.ru/sites/default/files/imagecache/copyright1/user-images/176432/Yr0JsnZDiICJSjEM36NRyw.jpg')"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="info"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="year"&gt;2014&lt;/div&gt;</p>
-<p class="p1">&lt;a href="https://www.youtube.com/watch?v=kr8xmDCTDCg" target="_blank" style="text-decoration: none;"&gt; &lt;h2 class="title"&gt;Залётчики&lt;/h2&gt; &lt;/a&gt;<span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="project"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="project-bg" style="background-image: url('https://avatars.mds.yandex.net/i?id=b6d1ca19eddc41e8a8f60113832a3fc3_l-12652282-images-thumbs&amp;n=13')"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="info"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="year"&gt;2011&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 class="title"&gt;Молодёжка &lt;span class="tag"&gt;ПИЛОТ&lt;/span&gt;&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="project"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="project-bg" style="background-image: url('https://cdn.fishki.net/upload/users/2021/02/05/617549/caeb8ab4b08f0d150a126ef100e1727d.png')"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="info"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="year"&gt;2011&lt;/div&gt;</p>
-<p class="p1">&lt;a href="https://www.youtube.com/watch?v=uDE5jCv_De0" target="_blank" style="text-decoration: none;"&gt; &lt;h2 class="title"&gt;Самый Лучший Фильм 3Дэ&lt;/h2&gt; &lt;/a&gt;<span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="project"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="project-bg" style="background-image: url('https://media.kg-portal.ru/images/samyjluchshijfilm/samyjluchshijfilm_28.jpg')"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="info"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="year"&gt;2008&lt;/div&gt;</p>
-<p class="p1">&lt;a href="https://www.youtube.com/watch?v=-UqeszaetkM" target="_blank" style="text-decoration: none;"&gt; &lt;h2 class="title"&gt;Самый Лучший Фильм&lt;/h2&gt; &lt;/a&gt;<span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="project"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="project-bg" style="background-image: url('https://irecommend.ru/sites/default/files/imagecache/copyright1/user-images/2377857/k33GFX5LWP4cDfDM7kHd8Q.jpeg')"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="info"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="year"&gt;2005&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">           </span>&lt;a href="https://www.youtube.com/watch?v=vf7s1_d90CM" target="_blank" style="text-decoration: none;"&gt; &lt;h2 class="title"&gt;Клуб&lt;/h2&gt; &lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;footer&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="cta-call"&gt;phone: +79037697243&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;a href="mailto:bildyev@gmail.com" class="mail-link"&gt;DIRECTOR.KUZIN&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/footer&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+    <header>
+        <h1>КИРИЛЛ<br><span class="red">КУЗИН</span></h1>
+    </header>
+
+    <section class="project">
+        <div class="year">2025</div>
+        <h2 class="title">ПИСЬМО ДЕДУ МОРОЗУ</h2>
+    </section>
+
+    <section class="project">
+        <div class="year">2025</div>
+        <h2 class="title">СЕРГИЙ ПРОТИВ НЕЧИСТИ</h2>
+    </section>
+
+    <section class="project">
+        <div class="year">2005</div>
+        <h2 class="title">КЛУБ</h2>
+    </section>
+
+    <footer>
+        <div style="font-size: 1.5rem;">ЕСТЬ РАБОТА? ПИШИ!</div>
+        <a href="mailto:director@example.com" class="mail">KUZIN.DIRECTOR</a>
+    </footer>
 </body>
 </html>
