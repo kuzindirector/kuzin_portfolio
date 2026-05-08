@@ -42,6 +42,38 @@ a { text-decoration: none; color: inherit; }
   100% { transform: translate(1%,-2%) }
 }
 
+/* MODAL */
+.modal-overlay {
+  display: none;
+  position: fixed; inset: 0; z-index: 2000;
+  background: rgba(0,0,0,0.95);
+  align-items: center; justify-content: center;
+  padding: 40px;
+}
+.modal-overlay.active { display: flex; }
+.modal-inner {
+  position: relative;
+  width: 100%; max-width: 1000px;
+}
+.modal-close {
+  position: absolute; top: -40px; right: 0;
+  font-family: 'Anton', sans-serif;
+  font-size: 13px; letter-spacing: 4px;
+  color: #444; cursor: pointer;
+  transition: color 0.2s;
+  background: none; border: none;
+}
+.modal-close:hover { color: var(--red); }
+.modal-video {
+  position: relative; padding-bottom: 56.25%;
+  height: 0; overflow: hidden;
+}
+.modal-video iframe {
+  position: absolute; top: 0; left: 0;
+  width: 100%; height: 100%;
+  border: none;
+}
+
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 500;
   display: flex; justify-content: space-between; align-items: center;
@@ -179,6 +211,9 @@ h1 .r { color: var(--red); }
 .film-arr { font-size: 18px; color: var(--red); opacity: 0; transform: translateX(-8px); transition: all 0.22s; }
 .badge { display: inline-block; font-size: 7px; letter-spacing: 2px; background: var(--red); color: var(--bg); padding: 3px 8px; margin-bottom: 5px; }
 
+/* строки без плеера — внешняя ссылка */
+.film-row.external .film-arr::after { content: ' ↗'; font-size: 12px; }
+
 .commercial { margin: 0 48px; border: 1px solid var(--line); padding: 40px; position: relative; }
 .commercial::before {
   content: '50+ КЛИПОВ И РЕКЛАМА';
@@ -234,11 +269,23 @@ footer { display: flex; justify-content: space-between; align-items: center; pad
   .contact-r { padding: 40px 20px; }
   footer { padding: 16px 20px; }
   .scroll-hint { display: none; }
+  .modal-overlay { padding: 20px; }
+  .modal-close { top: -32px; }
 }
 </style>
 </head>
 <body id="body">
 <div class="grain"></div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal" onclick="closeModal(event)">
+  <div class="modal-inner">
+    <button class="modal-close" onclick="closeModal()">✕ ЗАКРЫТЬ</button>
+    <div class="modal-video">
+      <iframe id="modal-iframe" src="" allowfullscreen allow="autoplay"></iframe>
+    </div>
+  </div>
+</div>
 
 <nav>
   <div class="nav-logo">K<span>—</span>KUZIN</div>
@@ -258,8 +305,7 @@ footer { display: flex; justify-content: space-between; align-items: center; pad
   <div class="hero-bg-word">КУЗИН</div>
   <div class="hero-photo">
     <!-- ЗАМЕНИ YOUR_PHOTO.jpg на имя файла своего фото -->
-    <img src="YOUR_PHOTO.jpg" alt="Кирилл Кузин"
-      onerror="this.style.display='none'">
+    <img src="YOUR_PHOTO.jpg" alt="Кирилл Кузин" onerror="this.style.display='none'">
   </div>
   <div class="hero-content">
     <div class="hero-eyebrow ru">// РЕЖИССЁР — МОСКВА — В ИНДУСТРИИ С 1998</div>
@@ -313,8 +359,8 @@ footer { display: flex; justify-content: space-between; align-items: center; pad
 
 <div class="films">
 
-  <a href="https://vimeo.com/1189097807?fl=ip&fe=ec" target="_blank">
-  <div class="film-row feat">
+  <!-- Vimeo: берём только ID из ссылки вида vimeo.com/XXXXXXX -->
+  <div class="film-row feat" onclick="openVimeo('1189097807')">
     <div class="film-year">2026</div>
     <div class="film-info">
       <span class="badge ru">СКОРО</span><span class="badge en">SOON</span>
@@ -325,10 +371,9 @@ footer { display: flex; justify-content: space-between; align-items: center; pad
     </div>
     <div class="film-arr">→</div>
   </div>
-  </a>
 
-  <a href="https://www.youtube.com/watch?v=LvN3fe44O5s" target="_blank">
-  <div class="film-row">
+  <!-- YouTube -->
+  <div class="film-row" onclick="openYoutube('LvN3fe44O5s')">
     <div class="film-year">2025</div>
     <div class="film-info">
       <div class="film-title ru">ПИСЬМО ДЕДУ МОРОЗУ</div>
@@ -338,10 +383,9 @@ footer { display: flex; justify-content: space-between; align-items: center; pad
     </div>
     <div class="film-arr">→</div>
   </div>
-  </a>
 
-  <a href="https://www.youtube.com/watch?v=CITR_Z3nGZM" target="_blank">
-  <div class="film-row">
+  <!-- YouTube -->
+  <div class="film-row" onclick="openYoutube('CITR_Z3nGZM')">
     <div class="film-year">2025</div>
     <div class="film-info">
       <div class="film-title ru">СЕРГИЙ ПРОТИВ НЕЧИСТИ: ЗОВ ПРЕДКОВ</div>
@@ -351,10 +395,9 @@ footer { display: flex; justify-content: space-between; align-items: center; pad
     </div>
     <div class="film-arr">→</div>
   </div>
-  </a>
 
-  <a href="https://vimeo.com/1189150732" target="_blank">
-  <div class="film-row">
+  <!-- Vimeo -->
+  <div class="film-row" onclick="openVimeo('1189150732')">
     <div class="film-year">2024</div>
     <div class="film-info">
       <div class="film-title ru">ЧЁРНЫЙ ЗАМОК</div>
@@ -364,10 +407,9 @@ footer { display: flex; justify-content: space-between; align-items: center; pad
     </div>
     <div class="film-arr">→</div>
   </div>
-  </a>
 
-  <a href="https://vkvideo.ru/video-214727386_456239095" target="_blank">
-  <div class="film-row">
+  <!-- VK — открываем внешней ссылкой -->
+  <div class="film-row external" onclick="window.open('https://vkvideo.ru/video-214727386_456239095','_blank')">
     <div class="film-year">2023</div>
     <div class="film-info">
       <div class="film-title ru">ДИАГНОЗ ВЕЗУЧАЯ</div>
@@ -377,10 +419,9 @@ footer { display: flex; justify-content: space-between; align-items: center; pad
     </div>
     <div class="film-arr">→</div>
   </div>
-  </a>
 
-  <a href="https://vimeo.com/1189150481" target="_blank">
-  <div class="film-row">
+  <!-- Vimeo -->
+  <div class="film-row" onclick="openVimeo('1189150481')">
     <div class="film-year">2023</div>
     <div class="film-info">
       <div class="film-title ru">ТАМ, ГДЕ ЦВЕТЁТ ПОЛЫНЬ</div>
@@ -390,10 +431,9 @@ footer { display: flex; justify-content: space-between; align-items: center; pad
     </div>
     <div class="film-arr">→</div>
   </div>
-  </a>
 
-  <a href="https://vimeo.com/1189146929" target="_blank">
-  <div class="film-row">
+  <!-- Vimeo -->
+  <div class="film-row" onclick="openVimeo('1189146929')">
     <div class="film-year">2023</div>
     <div class="film-info">
       <div class="film-title ru">СЕРГИЙ ПРОТИВ НЕЧИСТИ: ШАБАШ</div>
@@ -403,10 +443,9 @@ footer { display: flex; justify-content: space-between; align-items: center; pad
     </div>
     <div class="film-arr">→</div>
   </div>
-  </a>
 
-  <a href="https://www.youtube.com/watch?v=6lZa1POZ4Vs" target="_blank">
-  <div class="film-row">
+  <!-- YouTube -->
+  <div class="film-row" onclick="openYoutube('6lZa1POZ4Vs')">
     <div class="film-year">2022</div>
     <div class="film-info">
       <div class="film-title ru">ШЕСТНАДЦАТЬ +</div>
@@ -416,10 +455,9 @@ footer { display: flex; justify-content: space-between; align-items: center; pad
     </div>
     <div class="film-arr">→</div>
   </div>
-  </a>
 
-  <a href="https://youtu.be/fX2WtRy5dEA" target="_blank">
-  <div class="film-row">
+  <!-- YouTube -->
+  <div class="film-row" onclick="openYoutube('fX2WtRy5dEA')">
     <div class="film-year">2022</div>
     <div class="film-info">
       <div class="film-title ru">СЕРГИЙ ПРОТИВ НЕЧИСТИ</div>
@@ -429,10 +467,9 @@ footer { display: flex; justify-content: space-between; align-items: center; pad
     </div>
     <div class="film-arr">→</div>
   </div>
-  </a>
 
-  <a href="https://www.youtube.com/watch?v=jXCbz1mbPD8" target="_blank">
-  <div class="film-row">
+  <!-- YouTube -->
+  <div class="film-row" onclick="openYoutube('jXCbz1mbPD8')">
     <div class="film-year">2015</div>
     <div class="film-info">
       <div class="film-title ru">ЛОНДОНГРАД</div>
@@ -442,10 +479,9 @@ footer { display: flex; justify-content: space-between; align-items: center; pad
     </div>
     <div class="film-arr">→</div>
   </div>
-  </a>
 
-  <a href="https://vimeo.com/1189109024" target="_blank">
-  <div class="film-row">
+  <!-- Vimeo -->
+  <div class="film-row" onclick="openVimeo('1189109024')">
     <div class="film-year">2015</div>
     <div class="film-info">
       <div class="film-title ru">ВОЙНА ПОЛОВ</div>
@@ -455,10 +491,9 @@ footer { display: flex; justify-content: space-between; align-items: center; pad
     </div>
     <div class="film-arr">→</div>
   </div>
-  </a>
 
-  <a href="https://www.youtube.com/watch?v=kr8xmDCTDCg" target="_blank">
-  <div class="film-row">
+  <!-- YouTube -->
+  <div class="film-row" onclick="openYoutube('kr8xmDCTDCg')">
     <div class="film-year">2014</div>
     <div class="film-info">
       <div class="film-title ru">ЗАЛЁТЧИКИ</div>
@@ -468,9 +503,9 @@ footer { display: flex; justify-content: space-between; align-items: center; pad
     </div>
     <div class="film-arr">→</div>
   </div>
-  </a>
 
-  <div class="film-row">
+  <!-- Без ссылки -->
+  <div class="film-row" style="cursor:default;">
     <div class="film-year">2011</div>
     <div class="film-info">
       <div class="film-title ru">МОЛОДЁЖКА <span style="font-size:10px;background:var(--red);color:var(--bg);padding:2px 6px;vertical-align:middle;">ПИЛОТ</span></div>
@@ -478,11 +513,11 @@ footer { display: flex; justify-content: space-between; align-items: center; pad
       <div class="film-genre ru">СТИЛЬ, КОТОРЫЙ СТАЛ КУЛЬТОВЫМ ДЛЯ МИЛЛИОНОВ</div>
       <div class="film-genre en">A STYLE THAT BECAME ICONIC FOR MILLIONS</div>
     </div>
-    <div class="film-arr">→</div>
+    <div class="film-arr" style="opacity:0;"></div>
   </div>
 
-  <a href="https://vimeo.com/1189149303" target="_blank">
-  <div class="film-row">
+  <!-- Vimeo -->
+  <div class="film-row" onclick="openVimeo('1189149303')">
     <div class="film-year">2011</div>
     <div class="film-info">
       <div class="film-title ru">САМЫЙ ЛУЧШИЙ ФИЛЬМ 3ДЭ</div>
@@ -492,10 +527,9 @@ footer { display: flex; justify-content: space-between; align-items: center; pad
     </div>
     <div class="film-arr">→</div>
   </div>
-  </a>
 
-  <a href="https://vimeo.com/1189147888" target="_blank">
-  <div class="film-row">
+  <!-- Vimeo -->
+  <div class="film-row" onclick="openVimeo('1189147888')">
     <div class="film-year">2008</div>
     <div class="film-info">
       <div class="film-title ru">САМЫЙ ЛУЧШИЙ ФИЛЬМ</div>
@@ -505,10 +539,9 @@ footer { display: flex; justify-content: space-between; align-items: center; pad
     </div>
     <div class="film-arr">→</div>
   </div>
-  </a>
 
-  <a href="https://www.youtube.com/watch?v=vf7s1_d90CM" target="_blank">
-  <div class="film-row">
+  <!-- YouTube -->
+  <div class="film-row" onclick="openYoutube('vf7s1_d90CM')">
     <div class="film-year">2005</div>
     <div class="film-info">
       <div class="film-title ru">КЛУБ</div>
@@ -518,7 +551,6 @@ footer { display: flex; justify-content: space-between; align-items: center; pad
     </div>
     <div class="film-arr">→</div>
   </div>
-  </a>
 
 </div>
 
@@ -597,6 +629,29 @@ footer { display: flex; justify-content: space-between; align-items: center; pad
 </footer>
 
 <script>
+function openVimeo(id) {
+  document.getElementById('modal-iframe').src = 'https://player.vimeo.com/video/' + id + '?autoplay=1';
+  document.getElementById('modal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function openYoutube(id) {
+  document.getElementById('modal-iframe').src = 'https://www.youtube.com/embed/' + id + '?autoplay=1';
+  document.getElementById('modal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal(e) {
+  if (e && e.target !== document.getElementById('modal') && e.target.className !== 'modal-close') return;
+  document.getElementById('modal-iframe').src = '';
+  document.getElementById('modal').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeModal();
+});
+
 function setLang(lang) {
   const body = document.getElementById('body');
   const btnRu = document.getElementById('btn-ru');
