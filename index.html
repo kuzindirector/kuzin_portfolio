@@ -1,419 +1,616 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KIRILL KUZIN | DIRECTOR'S CUT</title>
-    <style>
-        :root {
-            --bg: #000;
-            --accent: #ff0000;
-            --text: #fff;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>КИРИЛЛ КУЗИН | РЕЖИССЁР</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:wght@400;700&family=Unbounded:wght@900&display=swap');
 
-        body, html {
-            margin: 0; padding: 0;
-            background: var(--bg);
-            color: var(--text);
-            font-family: 'Arial Black', 'Arial Bold', sans-serif;
-            text-transform: uppercase;
-            font-weight: 900;
-            overflow-x: hidden;
-        }
+:root {
+  --bg: #050505;
+  --red: #ff2200;
+  --white: #f0ebe0;
+  --dim: #888;
+  --dark: #0d0d0d;
+  --line: #1a1a1a;
+}
 
-        /* КНОПКА ПЕРЕКЛЮЧЕНИЯ ЯЗЫКА */
-        .lang-switch {
-            position: fixed; top: 30px; right: 30px; z-index: 2000;
-            font-family: 'Arial Black', sans-serif; font-size: 1rem; letter-spacing: 2px;
-        }
-        .lang-btn { color: var(--text); cursor: pointer; opacity: 0.5; transition: 0.3s; }
-        .lang-btn.active { opacity: 1; color: var(--accent); }
-        .lang-divider { margin: 0 5px; opacity: 0.3; }
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: 'Space Mono', monospace;
+  text-transform: uppercase;
+  overflow-x: hidden;
+}
+a { text-decoration: none; color: inherit; }
 
-        /* СКРЫТИЕ ЯЗЫКОВ */
-        .lang-en { display: none; }
-        body.en-active .lang-ru { display: none; }
-        body.en-active .lang-en { display: block; }
+.grain {
+  position: fixed; top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.05; pointer-events: none; z-index: 9999;
+  animation: gr 0.15s steps(1) infinite;
+}
+@keyframes gr {
+  0%   { transform: translate(0,0) }
+  25%  { transform: translate(-3%,2%) }
+  50%  { transform: translate(4%,-1%) }
+  75%  { transform: translate(-2%,3%) }
+  100% { transform: translate(1%,-2%) }
+}
 
-        /* КИНОЗЕРНО */
-        .grain {
-            position: fixed; top: -50%; left: -50%; width: 200%; height: 200%;
-            background-image: url("data:image/svg+xml,%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-            opacity: 0.04; z-index: 1000; pointer-events: none; animation: noise-anim 0.2s infinite;
-        }
-        @keyframes noise-anim {
-            0% { transform: translate(0,0) }
-            10% { transform: translate(-5%,-5%) }
-            20% { transform: translate(-10%,5%) }
-            100% { transform: translate(5%,0) }
-        }
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 18px 48px;
+  border-bottom: 1px solid rgba(26,26,26,0.9);
+  background: rgba(5,5,5,0.92);
+  backdrop-filter: blur(8px);
+}
+.nav-logo {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 12px; letter-spacing: 4px; color: var(--white);
+}
+.nav-logo span { color: var(--red); }
+.nav-links { display: flex; gap: 36px; list-style: none; }
+.nav-links a { font-size: 9px; letter-spacing: 3px; color: #444; transition: color 0.2s; }
+.nav-links a:hover { color: var(--red); }
+.lang-switch { display: flex; gap: 6px; font-size: 9px; letter-spacing: 2px; }
+.lang-btn { cursor: pointer; color: #333; transition: color 0.2s; }
+.lang-btn.active { color: var(--red); }
+.lang-sep { color: #222; }
 
-        header {
-            height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;
-            position: sticky; top: 0; z-index: 0; background: var(--bg); text-align: center; padding: 0 5%;
-        }
+.en { display: none; }
+body.en-mode .ru { display: none; }
+body.en-mode .en { display: block; }
 
-        h1 { font-size: 13vw; line-height: 0.8; margin: 0; letter-spacing: -6px; }
+#hero {
+  position: relative; height: 100vh; min-height: 600px;
+  display: flex; align-items: flex-end;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+}
+.hero-photo {
+  position: absolute; inset: 0;
+  background: #0a0a0a;
+  display: flex; align-items: center; justify-content: center;
+}
+.hero-photo img {
+  width: 100%; height: 100%; object-fit: cover;
+  object-position: center top;
+  filter: grayscale(0.4) brightness(0.4);
+}
+.hero-bg-word {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Unbounded', sans-serif;
+  font-size: 28vw; font-weight: 900;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(26,26,26,0.6);
+  white-space: nowrap; pointer-events: none; z-index: 1;
+  line-height: 1;
+}
+.hero-content {
+  position: relative; z-index: 10;
+  width: 100%; padding: 0 48px 56px;
+  background: linear-gradient(to top, rgba(5,5,5,0.97) 0%, rgba(5,5,5,0.7) 50%, transparent 100%);
+}
+.hero-eyebrow { font-size: 9px; letter-spacing: 5px; color: var(--red); margin-bottom: 16px; }
+h1 {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(64px, 12vw, 140px);
+  line-height: 0.88; letter-spacing: -2px;
+  color: var(--white); margin-bottom: 0;
+}
+h1 .r { color: var(--red); }
+.hero-cut {
+  width: 100%; height: 1px;
+  background: var(--red); margin: 20px 0;
+  position: relative;
+}
+.hero-cut::after {
+  content: 'CUT';
+  position: absolute; right: 0; top: -8px;
+  font-size: 8px; letter-spacing: 3px; color: var(--red);
+}
+.hero-meta { display: flex; gap: 48px; align-items: center; flex-wrap: wrap; }
+.hero-role { font-size: 10px; letter-spacing: 3px; color: var(--dim); }
+.hero-stats { display: flex; gap: 32px; }
+.stat { display: flex; flex-direction: column; gap: 2px; }
+.stat-n { font-family: 'Anton', sans-serif; font-size: 28px; color: var(--red); line-height: 1; }
+.stat-l { font-size: 8px; letter-spacing: 2px; color: #333; }
+.scroll-hint {
+  position: absolute; bottom: 32px; right: 48px; z-index: 20;
+  font-size: 8px; letter-spacing: 3px; color: #2a2a2a;
+  display: flex; align-items: center; gap: 10px;
+}
+.scroll-hint::before { content: ''; display: block; width: 40px; height: 1px; background: #2a2a2a; }
 
-        .sub-header {
-            font-size: 1.5rem; letter-spacing: 8px; margin-top: 40px;
-            font-weight: 400; font-family: 'Arial', sans-serif;
-        }
+.ticker {
+  background: var(--red); overflow: hidden;
+  padding: 10px 0; white-space: nowrap;
+  border-bottom: 1px solid var(--line);
+}
+.ticker-track { display: inline-block; animation: ticker 20s linear infinite; }
+@keyframes ticker { 0% { transform: translateX(0) } 100% { transform: translateX(-50%) } }
+.ticker-track span {
+  font-family: 'Anton', sans-serif;
+  font-size: 12px; letter-spacing: 4px;
+  color: var(--bg); margin-right: 48px;
+}
 
-        .main-manifesto {
-            font-size: 1.2rem; max-width: 800px; text-transform: none;
-            font-weight: 400; font-family: 'Arial', sans-serif;
-            margin-top: 30px; line-height: 1.6; color: #888;
-        }
+.sec-head { display: flex; align-items: baseline; gap: 16px; padding: 40px 48px 0; }
+.sec-n { font-family: 'Anton', sans-serif; font-size: 72px; color: #111; line-height: 1; letter-spacing: -2px; }
+.sec-label { font-size: 9px; letter-spacing: 4px; color: #333; }
+.sec-line { flex: 1; height: 1px; background: var(--line); align-self: center; }
 
-        .scroll-indicator {
-            position: absolute; bottom: 40px; font-size: 0.8rem; letter-spacing: 4px;
-            color: var(--accent); animation: bounce 2s infinite;
-        }
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-            40% {transform: translateY(-10px);}
-            60% {transform: translateY(-5px);}
-        }
+.films { padding: 8px 48px 0; }
+.film-row {
+  display: grid;
+  grid-template-columns: 72px 1fr 28px;
+  align-items: center; gap: 24px;
+  padding: 18px 0;
+  border-bottom: 1px solid #0f0f0f;
+  cursor: pointer; position: relative;
+  transition: all 0.22s; overflow: hidden;
+}
+.film-row::before {
+  content: ''; position: absolute;
+  left: 0; top: 0; bottom: 0; width: 0;
+  background: var(--red); transition: width 0.22s;
+}
+.film-row:hover::before { width: 3px; }
+.film-row:hover .film-title { color: var(--red); transform: translateX(6px); }
+.film-row:hover .film-year { color: var(--red); }
+.film-row:hover .film-arr { opacity: 1; transform: translateX(0); }
+.film-row.feat {
+  background: var(--dark); padding: 24px 20px;
+  margin: 0 -20px; border-bottom: 1px solid var(--red);
+}
+.film-row.feat .film-year { color: var(--red); }
+.film-row.feat .film-title { font-size: 26px; }
+.film-year { font-family: 'Anton', sans-serif; font-size: 26px; color: #1e1e1e; line-height: 1; transition: color 0.22s; }
+.film-info { display: flex; flex-direction: column; gap: 4px; }
+.film-title { font-family: 'Anton', sans-serif; font-size: 20px; line-height: 1; color: var(--white); transition: all 0.22s; letter-spacing: 0; }
+.film-genre { font-size: 8px; letter-spacing: 2px; color: #333; }
+.film-arr { font-size: 18px; color: var(--red); opacity: 0; transform: translateX(-8px); transition: all 0.22s; }
+.badge { display: inline-block; font-size: 7px; letter-spacing: 2px; background: var(--red); color: var(--bg); padding: 3px 8px; margin-bottom: 5px; }
 
-        .project {
-            position: relative; height: 100vh; width: 100%; display: flex;
-            align-items: center; justify-content: center; overflow: hidden;
-            border-bottom: 4px solid var(--text); z-index: 10; background: var(--bg);
-        }
+.commercial { margin: 0 48px; border: 1px solid var(--line); padding: 40px; position: relative; }
+.commercial::before {
+  content: '50+ КЛИПОВ И РЕКЛАМА';
+  position: absolute; top: -9px; left: 24px;
+  font-size: 8px; letter-spacing: 3px;
+  background: var(--bg); padding: 0 8px; color: var(--red);
+}
+.comm-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+.comm-item { padding: 24px; border-right: 1px solid var(--line); transition: background 0.2s; cursor: pointer; }
+.comm-item:last-child { border-right: none; }
+.comm-item:hover { background: var(--dark); }
+.comm-num { font-family: 'Anton', sans-serif; font-size: 48px; color: #161616; line-height: 1; margin-bottom: 8px; }
+.comm-item:hover .comm-num { color: #222; }
+.comm-title { font-size: 11px; letter-spacing: 2px; color: var(--white); margin-bottom: 6px; }
+.comm-desc { font-size: 8px; letter-spacing: 1px; color: #444; line-height: 1.6; }
 
-        .project-bg {
-            position: absolute; width: 100%; height: 100%;
-            background-size: cover; background-position: center;
-            filter: grayscale(1) brightness(0.2);
-            transition: 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-        }
+.contact { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid var(--line); }
+.contact-l { padding: 56px 48px; border-right: 1px solid var(--line); }
+.contact-r { padding: 56px 48px; }
+.contact-head { font-family: 'Anton', sans-serif; font-size: clamp(32px, 5vw, 56px); line-height: 0.9; color: var(--white); margin-bottom: 20px; }
+.contact-sub { font-size: 9px; letter-spacing: 2px; color: #333; }
+.contact-item { display: flex; align-items: flex-start; gap: 16px; padding: 20px 0; border-bottom: 1px solid #0f0f0f; }
+.contact-item:last-child { border-bottom: none; padding-bottom: 0; }
+.ci-icon { width: 32px; height: 32px; border: 1px solid #1a1a1a; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 12px; color: var(--red); }
+.ci-label { font-size: 8px; letter-spacing: 3px; color: #333; margin-bottom: 4px; }
+.ci-val { font-size: 13px; color: var(--white); }
 
-        .project:hover .project-bg { filter: grayscale(0) brightness(0.35); transform: scale(1.05); }
+footer { display: flex; justify-content: space-between; align-items: center; padding: 18px 48px; border-top: 1px solid #0f0f0f; }
+.footer-copy { font-size: 8px; letter-spacing: 2px; color: #1e1e1e; }
+.footer-r { font-size: 8px; letter-spacing: 2px; color: #1e1e1e; }
+.footer-r span { color: var(--red); }
 
-        .info { position: relative; z-index: 20; text-align: center; width: 90%; }
-        .year { font-size: 1.4rem; color: var(--accent); letter-spacing: 12px; margin-bottom: 10px; }
-        .title { font-size: 8vw; margin: 0; line-height: 0.9; letter-spacing: -4px; color: var(--text); }
-        
-        .manifesto { 
-            font-size: 1.1rem; max-width: 750px; margin: 15px auto 0; 
-            line-height: 1.4; letter-spacing: 1px; color: #ccc;
-            text-transform: none; font-weight: 400; font-family: 'Arial', sans-serif;
-        }
-
-        .tag { 
-            font-size: 1.2rem; background: var(--accent); color: #fff; 
-            padding: 2px 15px; margin-left: 20px; vertical-align: middle; 
-            letter-spacing: 2px;
-        }
-
-        footer {
-            position: relative; z-index: 30; background: var(--text); color: #000;
-            padding: 100px 5%; text-align: center;
-        }
-        .cta-call { font-size: 4vw; margin-bottom: 10px; }
-        .mail-link { font-size: 9.5vw; color: #000; text-decoration: none; line-height: 0.8; display: block; }
-        .mail-link:hover { color: var(--accent); }
-
-        a { text-decoration: none; color: inherit; }
-
-        @media (max-width: 600px) {
-            h1 { font-size: 18vw; }
-            .title { font-size: 12vw; }
-            .manifesto { font-size: 1rem; padding: 0 10px; }
-            .lang-switch { top: 20px; right: 20px; }
-        }
-    </style>
+@media (max-width: 768px) {
+  nav { padding: 16px 20px; }
+  .nav-links { display: none; }
+  #hero { height: 100svh; }
+  .hero-content { padding: 0 20px 40px; }
+  h1 { font-size: 18vw; }
+  .hero-stats { gap: 20px; }
+  .stat-n { font-size: 22px; }
+  .sec-head { padding: 32px 20px 0; }
+  .sec-n { font-size: 48px; }
+  .films { padding: 8px 20px 0; }
+  .film-row { grid-template-columns: 56px 1fr 20px; gap: 12px; }
+  .film-title { font-size: 16px; }
+  .film-row.feat .film-title { font-size: 20px; }
+  .commercial { margin: 0 20px; padding: 28px 20px; }
+  .comm-grid { grid-template-columns: 1fr; }
+  .comm-item { border-right: none; border-bottom: 1px solid var(--line); }
+  .comm-item:last-child { border-bottom: none; }
+  .contact { grid-template-columns: 1fr; }
+  .contact-l { border-right: none; border-bottom: 1px solid var(--line); padding: 40px 20px; }
+  .contact-r { padding: 40px 20px; }
+  footer { padding: 16px 20px; }
+  .scroll-hint { display: none; }
+}
+</style>
 </head>
-<body id="main-body">
-    <div class="grain"></div>
+<body id="body">
+<div class="grain"></div>
 
-    <div class="lang-switch">
-        <span class="lang-btn active" id="btn-ru" onclick="setLang('ru')">RU</span>
-        <span class="lang-divider">/</span>
-        <span class="lang-btn" id="btn-en" onclick="setLang('en')">EN</span>
+<nav>
+  <div class="nav-logo">K<span>—</span>KUZIN</div>
+  <ul class="nav-links">
+    <li><a href="#films" class="ru">ФИЛЬМЫ</a><a href="#films" class="en">FILMS</a></li>
+    <li><a href="#commercial" class="ru">КЛИПЫ / РЕКЛАМА</a><a href="#commercial" class="en">CLIPS / ADS</a></li>
+    <li><a href="#contact" class="ru">КОНТАКТ</a><a href="#contact" class="en">CONTACT</a></li>
+  </ul>
+  <div class="lang-switch">
+    <span class="lang-btn active" id="btn-ru" onclick="setLang('ru')">RU</span>
+    <span class="lang-sep">/</span>
+    <span class="lang-btn" id="btn-en" onclick="setLang('en')">EN</span>
+  </div>
+</nav>
+
+<section id="hero">
+  <div class="hero-bg-word">КУЗИН</div>
+  <div class="hero-photo">
+    <!-- ЗАМЕНИ YOUR_PHOTO.jpg на имя файла своего фото -->
+    <img src="YOUR_PHOTO.jpg" alt="Кирилл Кузин"
+      onerror="this.style.display='none'">
+  </div>
+  <div class="hero-content">
+    <div class="hero-eyebrow ru">// РЕЖИССЁР — МОСКВА — В ИНДУСТРИИ С 1998</div>
+    <div class="hero-eyebrow en">// DIRECTOR — MOSCOW — IN THE INDUSTRY SINCE 1998</div>
+    <h1>КИРИЛЛ<br><span class="r">/</span>КУЗИН</h1>
+    <div class="hero-cut"></div>
+    <div class="hero-meta">
+      <div class="hero-role ru">РЕЖИССЁР · VISUAL STORYTELLER</div>
+      <div class="hero-role en">DIRECTOR · VISUAL STORYTELLER</div>
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-n">14</div>
+          <div class="stat-l ru">ФИЛЬМОВ</div>
+          <div class="stat-l en">FILMS</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">50+</div>
+          <div class="stat-l ru">КЛИПОВ И РЕКЛ.</div>
+          <div class="stat-l en">CLIPS &amp; ADS</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">10</div>
+          <div class="stat-l ru">ТВ-ПРОЕКТОВ</div>
+          <div class="stat-l en">TV PROJECTS</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">28</div>
+          <div class="stat-l ru">ЛЕТ В КИНО</div>
+          <div class="stat-l en">YEARS IN FILM</div>
+        </div>
+      </div>
     </div>
+  </div>
+  <div class="scroll-hint ru">ПРОЕКТЫ НИЖЕ</div>
+  <div class="scroll-hint en">SCROLL DOWN</div>
+</section>
 
-    <header>
-        <h1>КИРИЛЛ<br><span style="color:var(--accent)">КУЗИН</span></h1>
-        
-        <div class="sub-header lang-ru">РЕЖИССЕР | VISUAL STORYTELLER</div>
-        <div class="sub-header lang-en">DIRECTOR | VISUAL STORYTELLER</div>
-        
-        <p class="main-manifesto lang-ru">
-            Создаю миры, где жанровая динамика встречается с визуальной поэзией. <br>
-            От культовых комедий до масштабных исторических драм и нуарного хоррора. <br>
-            Кино — это ритм. Мой ритм ниже.
-        </p>
-        <p class="main-manifesto lang-en">
-            Creating worlds where genre dynamics meet visual poetry. <br>
-            From cult comedies to epic historical dramas and noir horror. <br>
-            Cinema is rhythm. My rhythm is below.
-        </p>
-        
-        <div class="scroll-indicator lang-ru">ЛИСТАЙ К ПРОЕКТАМ</div>
-        <div class="scroll-indicator lang-en">SCROLL TO PROJECTS</div>
-    </header>
+<div class="ticker">
+  <div class="ticker-track">
+    <span>КИРИЛЛ КУЗИН</span><span>DIRECTOR</span><span>МОСКВА</span><span>С 1998</span><span>VISUAL STORYTELLER</span><span>14 ФИЛЬМОВ</span><span>50+ КЛИПОВ</span><span>10 ТВ-ПРОЕКТОВ</span>
+    <span>КИРИЛЛ КУЗИН</span><span>DIRECTOR</span><span>МОСКВА</span><span>С 1998</span><span>VISUAL STORYTELLER</span><span>14 ФИЛЬМОВ</span><span>50+ КЛИПОВ</span><span>10 ТВ-ПРОЕКТОВ</span>
+  </div>
+</div>
 
-    <section class="project">
-        <div class="project-bg" style="background-image: url('https://images.cybersport.ru/images/og-jpg/plain/00/007bb0e8-7ca7-48cd-be3b-58a4a7ff5599.jpg')"></div>
-        <div class="info">
-            <div class="year">2026</div>
-            <a href="https://vimeo.com/1189097807?fl=ip&fe=ec" target="_blank">
-            <h2 class="title">
-                <span class="lang-ru">Дубровский. Русский Зорро. <span class="tag">скоро</span></span>
-                <span class="lang-en">Dubrovsky. Russian Zorro. <span class="tag">soon</span></span>
-            </h2>
-            <p class="manifesto lang-ru">Псевдоклассика в стиле нуар. Мы создаем героя, который ломает систему.</p>
-            <p class="manifesto lang-en">Noir-style pseudo-classics. Creating a hero who breaks the system.</p>
-        </div>
-    </section>
+<div id="films" class="sec-head">
+  <div class="sec-n">01</div>
+  <div class="sec-label ru">ФИЛЬМОГРАФИЯ</div>
+  <div class="sec-label en">FILMOGRAPHY</div>
+  <div class="sec-line"></div>
+</div>
 
-    <section class="project">
-        <div class="project-bg" style="background-image: url('https://static.kinoafisha.info/k/trailers/1270/upload/trailers/ca78d28a4ada04ac58f80db9dcb58457.jpg')"></div>
-        <div class="info">
-            <div class="year">2025</div>
-            <a href="https://www.youtube.com/watch?v=LvN3fe44O5s" target="_blank">
-                <h2 class="title">
-                    <span class="lang-ru">Письмо Деду Морозу</span>
-                    <span class="lang-en">A Letter to Santa</span>
-                </h2>
-                <p class="manifesto lang-ru">Большое семейное кино. Магия в каждом кадре.</p>
-                <p class="manifesto lang-en">Major family motion picture. Magic in every single frame.</p>
-            </a>
-        </div>
-    </section>
+<div class="films">
 
-    <section class="project">
-        <div class="project-bg" style="background-image: url('https://avatars.mds.yandex.net/i?id=da2e1f3979e26dcf54fe4caabc40cfc9_l-7045590-images-thumbs&n=13')"></div>
-        <div class="info">
-            <div class="year">2025</div>
-            <a href="https://www.youtube.com/watch?v=CITR_Z3nGZM" target="_blank">
-                <h2 class="title">
-                    <span class="lang-ru">Сергий Против Нечисти: Зов Предков</span>
-                    <span class="lang-en">Sergiy vs Evil: Ancestors Call</span>
-                </h2>
-                <p class="manifesto lang-ru">Хоррор-панк по мотивам легенд. Визуальный драйв, кровь и мистика в Казани.</p>
-                <p class="manifesto lang-en">Horror-punk based on folklore. Visual drive, blood and mysticism in Kazan.</p>
-            </a>
-        </div>
-    </section>
+  <a href="https://vimeo.com/1189097807?fl=ip&fe=ec" target="_blank">
+  <div class="film-row feat">
+    <div class="film-year">2026</div>
+    <div class="film-info">
+      <span class="badge ru">СКОРО</span><span class="badge en">SOON</span>
+      <div class="film-title ru">ДУБРОВСКИЙ. РУССКИЙ ЗОРРО</div>
+      <div class="film-title en">DUBROVSKY. RUSSIAN ZORRO</div>
+      <div class="film-genre ru">НУАР · ПСЕВДОКЛАССИКА · ЛОМАЕТ СИСТЕМУ</div>
+      <div class="film-genre en">NOIR · PSEUDO-CLASSIC · BREAKS THE SYSTEM</div>
+    </div>
+    <div class="film-arr">→</div>
+  </div>
+  </a>
 
-    <section class="project">
-        <div class="project-bg" style="background-image: url('https://www.kino-teatr.ru/movie/kadr/167346/1732161.jpg')"></div>
-        <div class="info">
-            <div class="year">2024</div>
-            <a href="https://vimeo.com/1189150732?share=copy&fl=sv&fe=ci">
-                <h2 class="title">
-                    <span class="lang-ru">Чёрный Замок</span>
-                    <span class="lang-en">The Black Castle</span>
-                </h2>
-                <p class="manifesto lang-ru">Масштабная историческая драма.</p>
-                <p class="manifesto lang-en">Large-scale historical drama.</p>
-            </a>
-        </div>
-    </section>
+  <a href="https://www.youtube.com/watch?v=LvN3fe44O5s" target="_blank">
+  <div class="film-row">
+    <div class="film-year">2025</div>
+    <div class="film-info">
+      <div class="film-title ru">ПИСЬМО ДЕДУ МОРОЗУ</div>
+      <div class="film-title en">A LETTER TO SANTA</div>
+      <div class="film-genre ru">СЕМЕЙНОЕ КИНО · МАГИЯ В КАЖДОМ КАДРЕ</div>
+      <div class="film-genre en">FAMILY FILM · MAGIC IN EVERY FRAME</div>
+    </div>
+    <div class="film-arr">→</div>
+  </div>
+  </a>
 
-    <section class="project">
-        <div class="project-bg" style="background-image: url('https://avatars.mds.yandex.net/i?id=30fe922f35990e8e5d04bd297416a330_l-10163806-images-thumbs&n=13')"></div>
-        <div class="info">
-            <div class="year">2023</div>
-            <a href="https://vkvideo.ru/video-214727386_456239095" target="_blank">
-                <h2 class="title">
-                    <span class="lang-ru">Диагноз Везучая</span>
-                    <span class="lang-en">Diagnosis: Lucky</span>
-                </h2>
-                <p class="manifesto lang-ru">Криминальная комедия в ритме экшн.</p>
-                <p class="manifesto lang-en">Action-packed crime comedy.</p>
-            </a>
-        </div>
-    </section>
+  <a href="https://www.youtube.com/watch?v=CITR_Z3nGZM" target="_blank">
+  <div class="film-row">
+    <div class="film-year">2025</div>
+    <div class="film-info">
+      <div class="film-title ru">СЕРГИЙ ПРОТИВ НЕЧИСТИ: ЗОВ ПРЕДКОВ</div>
+      <div class="film-title en">SERGIY VS EVIL: ANCESTORS CALL</div>
+      <div class="film-genre ru">ХОРРОР-ПАНК · ФОЛЬКЛОР · КАЗАНЬ</div>
+      <div class="film-genre en">HORROR-PUNK · FOLKLORE · KAZAN</div>
+    </div>
+    <div class="film-arr">→</div>
+  </div>
+  </a>
 
-    <section class="project">
-        <div class="project-bg" style="background-image: url('https://static.okko.tv/images/v4/3036ff41-dc97-420e-ac56-264b9665bcb5?presetId=4000&width=1200&height=630&scale=1&quality=80')"></div>
-        <div class="info">
-            <div class="year">2023</div>
-            <a href="https://vimeo.com/1189150481?share=copy&fl=sv&fe=ci">
-                <h2 class="title">
-                    <span class="lang-ru">Там, где цветёт полынь</span>
-                    <span class="lang-en">Where the Wormwood Blooms</span>
-                </h2>
-                <p class="manifesto lang-ru">Тёмная мистика и визуальная меланхолия.</p>
-                <p class="manifesto lang-en">Dark mysticism and visual melancholy.</p>
-            </a>
-        </div>
-    </section>
+  <a href="https://vimeo.com/1189150732" target="_blank">
+  <div class="film-row">
+    <div class="film-year">2024</div>
+    <div class="film-info">
+      <div class="film-title ru">ЧЁРНЫЙ ЗАМОК</div>
+      <div class="film-title en">THE BLACK CASTLE</div>
+      <div class="film-genre ru">МАСШТАБНАЯ ИСТОРИЧЕСКАЯ ДРАМА</div>
+      <div class="film-genre en">LARGE-SCALE HISTORICAL DRAMA</div>
+    </div>
+    <div class="film-arr">→</div>
+  </div>
+  </a>
 
-    <section class="project">
-        <div class="project-bg" style="background-image: url('https://cdn.mirage.ru/images/film/5000/big/s5398.jpg')"></div>
-        <div class="info">
-            <div class="year">2023</div>
-            <a href="https://vimeo.com/1189146929?fl=tl&fe=ec">
-                <h2 class="title">
-                    <span class="lang-ru">Сергий Против Нечисти: Шабаш</span>
-                    <span class="lang-en">Sergiy vs Evil: Witches' Sabbath</span>
-                </h2>
-                <p class="manifesto lang-ru">Когда зло становится слишком живым.</p>
-                <p class="manifesto lang-en">When evil becomes too real.</p>
-            </a>
-        </div>
-    </section>
+  <a href="https://vkvideo.ru/video-214727386_456239095" target="_blank">
+  <div class="film-row">
+    <div class="film-year">2023</div>
+    <div class="film-info">
+      <div class="film-title ru">ДИАГНОЗ ВЕЗУЧАЯ</div>
+      <div class="film-title en">DIAGNOSIS: LUCKY</div>
+      <div class="film-genre ru">КРИМИНАЛЬНАЯ КОМЕДИЯ · ЭКШН-РИТМ</div>
+      <div class="film-genre en">CRIME COMEDY · ACTION RHYTHM</div>
+    </div>
+    <div class="film-arr">→</div>
+  </div>
+  </a>
 
-    <section class="project">
-        <div class="project-bg" style="background-image: url('https://www.kino-teatr.ru/movie/poster/149168/115123.jpg')"></div>
-        <div class="info">
-            <div class="year">2022</div>
-            <a href="https://www.youtube.com/watch?v=6lZa1POZ4Vs" target="_blank">
-                <h2 class="title">
-                    <span class="lang-ru">Шестнадцать +</span>
-                    <span class="lang-en">Sixteen +</span>
-                </h2>
-                <p class="manifesto lang-ru">Альманах о первой любви и боли. Честно, близко, на разрыв.</p>
-                <p class="manifesto lang-en">Anthology about first love and pain. Honest and heart-breaking.</p>
-            </a>
-        </div>
-    </section>
+  <a href="https://vimeo.com/1189150481" target="_blank">
+  <div class="film-row">
+    <div class="film-year">2023</div>
+    <div class="film-info">
+      <div class="film-title ru">ТАМ, ГДЕ ЦВЕТЁТ ПОЛЫНЬ</div>
+      <div class="film-title en">WHERE THE WORMWOOD BLOOMS</div>
+      <div class="film-genre ru">ТЁМНАЯ МИСТИКА · ВИЗУАЛЬНАЯ МЕЛАНХОЛИЯ</div>
+      <div class="film-genre en">DARK MYSTICISM · VISUAL MELANCHOLY</div>
+    </div>
+    <div class="film-arr">→</div>
+  </div>
+  </a>
 
-    <section class="project">
-        <div class="project-bg" style="background-image: url('https://toposrednik.ru/wp-content/uploads/2023/01/zz371-1-1024x715-1.jpg')"></div>
-        <div class="info">
-            <div class="year">2022</div>
-            <a href="https://youtu.be/fX2WtRy5dEA" target="_blank">
-                <h2 class="title">
-                    <span class="lang-ru">Сергий Против Нечисти</span>
-                    <span class="lang-en">Sergiy vs Evil</span>
-                </h2>
-                <p class="manifesto lang-ru">Панк-рок в мире сериалов. Настоящее городское фэнтези.</p>
-                <p class="manifesto lang-en">Punk rock in the world of TV series. Real urban fantasy.</p>
-            </a>
-        </div>
-    </section>
+  <a href="https://vimeo.com/1189146929" target="_blank">
+  <div class="film-row">
+    <div class="film-year">2023</div>
+    <div class="film-info">
+      <div class="film-title ru">СЕРГИЙ ПРОТИВ НЕЧИСТИ: ШАБАШ</div>
+      <div class="film-title en">SERGIY VS EVIL: WITCHES' SABBATH</div>
+      <div class="film-genre ru">КОГДА ЗЛО СТАНОВИТСЯ СЛИШКОМ ЖИВЫМ</div>
+      <div class="film-genre en">WHEN EVIL BECOMES TOO REAL</div>
+    </div>
+    <div class="film-arr">→</div>
+  </div>
+  </a>
 
-    <section class="project">
-        <div class="project-bg" style="background-image: url('https://irecommend.ru/sites/default/files/imagecache/copyright1/user-images/237759/lGb6t9ade5ve4gP4QlvxeQ.jpg')"></div>
-        <div class="info">
-            <div class="year">2015</div>
-            <a href="https://www.youtube.com/watch?v=jXCbz1mbPD8&t=3s" target="_blank">
-                <h2 class="title">
-                    <span class="lang-ru">Лондонград</span>
-                    <span class="lang-en">Londongrad</span>
-                </h2>
-                <p class="manifesto lang-ru">И ты помнишь: я шёл сюда долго, брат. Пусть для них это Лондон, Но для нас это Лондонград.</p>
-                <p class="manifesto lang-en">Remember: I've come a long way here. It might be London for them, but for us it's Londongrad.</p>
-            </a>
-        </div>
-    </section>
+  <a href="https://www.youtube.com/watch?v=6lZa1POZ4Vs" target="_blank">
+  <div class="film-row">
+    <div class="film-year">2022</div>
+    <div class="film-info">
+      <div class="film-title ru">ШЕСТНАДЦАТЬ +</div>
+      <div class="film-title en">SIXTEEN +</div>
+      <div class="film-genre ru">АЛЬМАНАХ · ПЕРВАЯ ЛЮБОВЬ · НА РАЗРЫВ</div>
+      <div class="film-genre en">ANTHOLOGY · FIRST LOVE · HEART-BREAKING</div>
+    </div>
+    <div class="film-arr">→</div>
+  </div>
+  </a>
 
-    <section class="project">
-        <div class="project-bg" style="background-image: url('https://avatars.mds.yandex.net/get-kinopoisk-image/1777765/f614509f-ac41-4ce9-b770-8e9c6b27f9b9/1920x')"></div>
-        <div class="info">
-            <div class="year">2015</div>
-            <a href="https://vimeo.com/1189109024?share=copy&fl=sv&fe=ci" target="_blank">
-                <h2 class="title">
-                    <span class="lang-ru">Война Полов</span>
-                    <span class="lang-en">War of Sexes</span>
-                </h2>
-                <p class="manifesto lang-ru">Комедия на выживание.</p>
-                <p class="manifesto lang-en">Survival comedy.</p>
-            </a>
-        </div>
-    </section>
+  <a href="https://youtu.be/fX2WtRy5dEA" target="_blank">
+  <div class="film-row">
+    <div class="film-year">2022</div>
+    <div class="film-info">
+      <div class="film-title ru">СЕРГИЙ ПРОТИВ НЕЧИСТИ</div>
+      <div class="film-title en">SERGIY VS EVIL</div>
+      <div class="film-genre ru">ПАНК-РОК СЕРИАЛ · ГОРОДСКОЕ ФЭНТЕЗИ</div>
+      <div class="film-genre en">PUNK-ROCK TV SERIES · URBAN FANTASY</div>
+    </div>
+    <div class="film-arr">→</div>
+  </div>
+  </a>
 
-    <section class="project">
-        <div class="project-bg" style="background-image: url('https://irecommend.ru/sites/default/files/imagecache/copyright1/user-images/176432/Yr0JsnZDiICJSjEM36NRyw.jpg')"></div>
-        <div class="info">
-            <div class="year">2014</div>
-            <a href="https://www.youtube.com/watch?v=kr8xmDCTDCg" target="_blank">
-                <h2 class="title">
-                    <span class="lang-ru">Залётчики</span>
-                    <span class="lang-en">The Fly-By Guys</span>
-                </h2>
-                <p class="manifesto lang-ru">Абсурд, полёт и полная свобода в кадре. Не курите.</p>
-                <p class="manifesto lang-en">Absurdity, flight and total freedom in the frame. Don't smoke.</p>
-            </a>
-        </div>
-    </section>
+  <a href="https://www.youtube.com/watch?v=jXCbz1mbPD8" target="_blank">
+  <div class="film-row">
+    <div class="film-year">2015</div>
+    <div class="film-info">
+      <div class="film-title ru">ЛОНДОНГРАД</div>
+      <div class="film-title en">LONDONGRAD</div>
+      <div class="film-genre ru">СЕРИАЛ · КОМЕДИЯ · ТНТ</div>
+      <div class="film-genre en">TV SERIES · COMEDY · TNT</div>
+    </div>
+    <div class="film-arr">→</div>
+  </div>
+  </a>
 
-    <section class="project">
-        <div class="project-bg" style="background-image: url('https://avatars.mds.yandex.net/i?id=b6d1ca19eddc41e8a8f60113832a3fc3_l-12652282-images-thumbs&n=13')"></div>
-        <div class="info">
-            <div class="year">2011</div>
-            <h2 class="title">
-                <span class="lang-ru">Молодёжка <span class="tag">ПИЛОТ</span></span>
-                <span class="lang-en">Junior League <span class="tag">PILOT</span></span>
-            </h2>
-            <p class="manifesto lang-ru">Мы нашли стиль, который станет культовым для миллионов.</p>
-            <p class="manifesto lang-en">Searching for a style that would become iconic for millions.</p>
-        </div>
-    </section>
+  <a href="https://vimeo.com/1189109024" target="_blank">
+  <div class="film-row">
+    <div class="film-year">2015</div>
+    <div class="film-info">
+      <div class="film-title ru">ВОЙНА ПОЛОВ</div>
+      <div class="film-title en">WAR OF SEXES</div>
+      <div class="film-genre ru">КОМЕДИЯ НА ВЫЖИВАНИЕ</div>
+      <div class="film-genre en">SURVIVAL COMEDY</div>
+    </div>
+    <div class="film-arr">→</div>
+  </div>
+  </a>
 
-    <section class="project">
-        <div class="project-bg" style="background-image: url('https://cdn.fishki.net/upload/users/2021/02/05/617549/caeb8ab4b08f0d150a126ef100e1727d.png')"></div>
-        <div class="info">
-            <div class="year">2011</div>
-            <a href="https://vimeo.com/1189149303?fl=tl&fe=ec" target="_blank">
-                <h2 class="title">
-                    <span class="lang-ru">Самый Лучший Фильм 3Дэ</span>
-                    <span class="lang-en">The Best Movie 3D</span>
-                </h2>
-                <p class="manifesto lang-ru">Надевай 3Дэ очки. Смотри 3Дэ юмор.</p>
-                <p class="manifesto lang-en">Put on your 3D glasses. Watch 3D humor.</p>
-            </a>
-        </div>
-    </section>
+  <a href="https://www.youtube.com/watch?v=kr8xmDCTDCg" target="_blank">
+  <div class="film-row">
+    <div class="film-year">2014</div>
+    <div class="film-info">
+      <div class="film-title ru">ЗАЛЁТЧИКИ</div>
+      <div class="film-title en">THE FLY-BY GUYS</div>
+      <div class="film-genre ru">АБСУРД · ПОЛЁТ · ПОЛНАЯ СВОБОДА В КАДРЕ</div>
+      <div class="film-genre en">ABSURDITY · FLIGHT · TOTAL FREEDOM IN FRAME</div>
+    </div>
+    <div class="film-arr">→</div>
+  </div>
+  </a>
 
-    <section class="project">
-        <div class="project-bg" style="background-image: url('https://media.kg-portal.ru/images/samyjluchshijfilm/samyjluchshijfilm_28.jpg')"></div>
-        <div class="info">
-            <div class="year">2008</div>
-            <a href="https://vimeo.com/1189147888?fl=tl&fe=ec" target="_blank">
-                <h2 class="title">
-                    <span class="lang-ru">Самый Лучший Фильм</span>
-                    <span class="lang-en">The Best Movie</span>
-                </h2>
-                <p class="manifesto lang-ru">Наглый вызов индустрии. Шутки, которые ты услышишь даже от своих внуков.</p>
-                <p class="manifesto lang-en">Audacious challenge to the industry. Jokes you'll hear even from your grandchildren.</p>
-            </a>
-        </div>
-    </section>
+  <div class="film-row">
+    <div class="film-year">2011</div>
+    <div class="film-info">
+      <div class="film-title ru">МОЛОДЁЖКА <span style="font-size:10px;background:var(--red);color:var(--bg);padding:2px 6px;vertical-align:middle;">ПИЛОТ</span></div>
+      <div class="film-title en">JUNIOR LEAGUE <span style="font-size:10px;background:var(--red);color:var(--bg);padding:2px 6px;vertical-align:middle;">PILOT</span></div>
+      <div class="film-genre ru">СТИЛЬ, КОТОРЫЙ СТАЛ КУЛЬТОВЫМ ДЛЯ МИЛЛИОНОВ</div>
+      <div class="film-genre en">A STYLE THAT BECAME ICONIC FOR MILLIONS</div>
+    </div>
+    <div class="film-arr">→</div>
+  </div>
 
-    <section class="project">
-        <div class="project-bg" style="background-image: url('https://irecommend.ru/sites/default/files/imagecache/copyright1/user-images/2377857/k33GFX5LWP4cDfDM7kHd8Q.jpeg')"></div>
-        <div class="info">
-            <div class="year">2005</div>
-            <a href="https://www.youtube.com/watch?v=vf7s1_d90CM" target="_blank">
-                <h2 class="title">
-                    <span class="lang-ru">Клуб</span>
-                    <span class="lang-en">The Club</span>
-                </h2>
-                <p class="manifesto lang-ru">Ритм поколения. Первая большая история о свободе и музыке.</p>
-                <p class="manifesto lang-en">Rhythm of a generation. A major story about freedom and music.</p>
-            </a>
-        </div>
-    </section>
+  <a href="https://vimeo.com/1189149303" target="_blank">
+  <div class="film-row">
+    <div class="film-year">2011</div>
+    <div class="film-info">
+      <div class="film-title ru">САМЫЙ ЛУЧШИЙ ФИЛЬМ 3ДЭ</div>
+      <div class="film-title en">THE BEST MOVIE 3D</div>
+      <div class="film-genre ru">КИНОТЕАТРАЛЬНЫЙ РЕЛИЗ · 3D КОМЕДИЯ</div>
+      <div class="film-genre en">THEATRICAL RELEASE · 3D COMEDY</div>
+    </div>
+    <div class="film-arr">→</div>
+  </div>
+  </a>
 
-    <footer>
-        <div class="cta-call lang-ru">ТЕЛ: +79037697243</div>
-        <div class="cta-call lang-en">PHONE: +79037697243</div>
-        <a href="mailto:bildyev@gmail.com" class="mail-link">KUZIN.DIRECTOR</a>
-    </footer>
+  <a href="https://vimeo.com/1189147888" target="_blank">
+  <div class="film-row">
+    <div class="film-year">2008</div>
+    <div class="film-info">
+      <div class="film-title ru">САМЫЙ ЛУЧШИЙ ФИЛЬМ</div>
+      <div class="film-title en">THE BEST MOVIE</div>
+      <div class="film-genre ru">КИНОТЕАТРАЛЬНЫЙ РЕЛИЗ · НАГЛЫЙ ВЫЗОВ ИНДУСТРИИ</div>
+      <div class="film-genre en">THEATRICAL RELEASE · AUDACIOUS CHALLENGE TO THE INDUSTRY</div>
+    </div>
+    <div class="film-arr">→</div>
+  </div>
+  </a>
 
-    <script>
-        function setLang(lang) {
-            const body = document.getElementById('main-body');
-            const btnRu = document.getElementById('btn-ru');
-            const btnEn = document.getElementById('btn-en');
-            
-            if (lang === 'en') {
-                body.classList.add('en-active');
-                btnEn.classList.add('active');
-                btnRu.classList.remove('active');
-            } else {
-                body.classList.remove('en-active');
-                btnRu.classList.add('active');
-                btnEn.classList.remove('active');
-            }
-        }
-    </script>
+  <a href="https://www.youtube.com/watch?v=vf7s1_d90CM" target="_blank">
+  <div class="film-row">
+    <div class="film-year">2005</div>
+    <div class="film-info">
+      <div class="film-title ru">КЛУБ</div>
+      <div class="film-title en">THE CLUB</div>
+      <div class="film-genre ru">ДЕБЮТ · РИТМ ПОКОЛЕНИЯ · СВОБОДА И МУЗЫКА</div>
+      <div class="film-genre en">DEBUT · RHYTHM OF A GENERATION · FREEDOM AND MUSIC</div>
+    </div>
+    <div class="film-arr">→</div>
+  </div>
+  </a>
+
+</div>
+
+<div id="commercial" class="sec-head" style="margin-top:48px;">
+  <div class="sec-n">02</div>
+  <div class="sec-label ru">КЛИПЫ И РЕКЛАМА</div>
+  <div class="sec-label en">CLIPS &amp; COMMERCIALS</div>
+  <div class="sec-line"></div>
+</div>
+
+<div style="padding:24px 48px 0;">
+  <div class="commercial">
+    <div class="comm-grid">
+      <div class="comm-item">
+        <div class="comm-num">50+</div>
+        <div class="comm-title ru">МУЗЫКАЛЬНЫЕ КЛИПЫ</div>
+        <div class="comm-title en">MUSIC VIDEOS</div>
+        <div class="comm-desc ru">Артисты, лейблы, независимые проекты. Визуальный язык — от панка до лирики.</div>
+        <div class="comm-desc en">Artists, labels, independent projects. Visual language from punk to lyrical.</div>
+      </div>
+      <div class="comm-item">
+        <div class="comm-num">∞</div>
+        <div class="comm-title ru">РЕКЛАМНЫЕ РОЛИКИ</div>
+        <div class="comm-title en">COMMERCIALS</div>
+        <div class="comm-desc ru">Федеральные бренды и международные кампании. Коммерческое мышление с авторским взглядом.</div>
+        <div class="comm-desc en">Federal brands and international campaigns. Commercial thinking with an auteur eye.</div>
+      </div>
+      <div class="comm-item">
+        <div class="comm-num">10</div>
+        <div class="comm-title ru">ТВ-ПРОЕКТЫ</div>
+        <div class="comm-title en">TV PROJECTS</div>
+        <div class="comm-desc ru">Сериалы и пилоты для крупнейших российских каналов. ТНТ, СТС и другие.</div>
+        <div class="comm-desc en">Series and pilots for Russia's major channels. TNT, STS and others.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="contact" class="contact">
+  <div class="contact-l">
+    <div class="contact-head ru">КОНТАКТ</div>
+    <div class="contact-head en">CONTACT</div>
+    <div class="contact-sub ru">КИРИЛЛ КУЗИН · МОСКВА · С 1998</div>
+    <div class="contact-sub en">KIRILL KUZIN · MOSCOW · SINCE 1998</div>
+  </div>
+  <div class="contact-r">
+    <div class="contact-item">
+      <div class="ci-icon">☎</div>
+      <div>
+        <div class="ci-label ru">ТЕЛЕФОН</div>
+        <div class="ci-label en">PHONE</div>
+        <div class="ci-val">+7 903 769-72-43</div>
+      </div>
+    </div>
+    <div class="contact-item">
+      <div class="ci-icon">@</div>
+      <div>
+        <div class="ci-label">EMAIL</div>
+        <!-- ЗАМЕНИ на свой рабочий email -->
+        <div class="ci-val"><a href="mailto:bildyev@gmail.com" style="color:var(--white);transition:color 0.2s;" onmouseover="this.style.color='var(--red)'" onmouseout="this.style.color='var(--white)'">KUZIN.DIRECTOR@GMAIL.COM</a></div>
+      </div>
+    </div>
+    <div class="contact-item">
+      <div class="ci-icon">▶</div>
+      <div>
+        <div class="ci-label">SHOWREEL</div>
+        <div class="ci-val"><a href="https://vimeo.com/1189097807" target="_blank" style="color:var(--white);transition:color 0.2s;" onmouseover="this.style.color='var(--red)'" onmouseout="this.style.color='var(--white)'">VIMEO.COM/KUZINDIRECTOR</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-copy">© 2026 KIRILL KUZIN. ALL RIGHTS RESERVED.</div>
+  <div class="footer-r">MADE WITHOUT <span>COMPROMISE</span></div>
+</footer>
+
+<script>
+function setLang(lang) {
+  const body = document.getElementById('body');
+  const btnRu = document.getElementById('btn-ru');
+  const btnEn = document.getElementById('btn-en');
+  if (lang === 'en') {
+    body.classList.add('en-mode');
+    btnEn.classList.add('active');
+    btnRu.classList.remove('active');
+  } else {
+    body.classList.remove('en-mode');
+    btnRu.classList.add('active');
+    btnEn.classList.remove('active');
+  }
+}
+</script>
 </body>
 </html>
