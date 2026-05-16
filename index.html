@@ -50,20 +50,20 @@ section{position:relative;scroll-snap-align:start;}
 .video-wrap{position:absolute;inset:0;z-index:1;}
 .video-wrap iframe{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:177.78vh;height:100vh;min-width:100%;min-height:56.25vw;pointer-events:none;border:none;}
 .video-placeholder{position:absolute;inset:0;z-index:1;background:#050505;display:flex;align-items:center;justify-content:center;}
-.vp-text{font-size:11px;letter-spacing:5px;color:#1a1a1a;}
+.vp-text{font-size:11px;letter-spacing:5px;color:#1a1a1a;font-family:'Space Mono',monospace;}
 .hero-overlay{position:absolute;inset:0;z-index:2;background:linear-gradient(to bottom,rgba(0,0,0,.2) 0%,rgba(0,0,0,.05) 40%,rgba(0,0,0,.7) 85%,rgba(6,6,6,1) 100%);}
 .hero-center{position:absolute;inset:0;z-index:3;display:flex;flex-direction:column;align-items:center;justify-content:center;}
 .hero-name{font-size:clamp(80px,16vw,200px);line-height:.88;letter-spacing:2px;color:var(--white);text-align:center;}
 .hero-name .sl{color:var(--red);}
 .hero-sub{font-size:clamp(10px,1.2vw,14px);letter-spacing:8px;color:rgba(255,255,255,.3);margin-top:20px;font-family:'Space Mono',monospace;}
 .scroll-hint{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:4;display:flex;flex-direction:column;align-items:center;gap:8px;animation:br 3s ease-in-out infinite;}
-.scroll-hint span{font-size:10px;letter-spacing:5px;color:rgba(255,255,255,.2);}
+.scroll-hint span{font-size:10px;letter-spacing:5px;color:rgba(255,255,255,.2);font-family:'Space Mono',monospace;}
 .scroll-hint::after{content:'';display:block;width:1px;height:40px;background:var(--red);animation:grow 3s ease-in-out infinite;}
 @keyframes br{0%,100%{opacity:.3}50%{opacity:1}}
 @keyframes grow{0%,100%{transform:scaleY(.3)}50%{transform:scaleY(1)}}
 
-#s2{width:100%;height:100vh;overflow:hidden;background:#000;cursor:none;}
-.full-film{position:relative;width:100%;height:100%;overflow:hidden;}
+#s2,#s5{width:100%;height:100vh;overflow:hidden;background:#000;}
+.full-film{position:relative;width:100%;height:100%;overflow:hidden;cursor:none;}
 .full-film img{width:100%;height:100%;object-fit:cover;filter:brightness(.45) grayscale(.2);transition:filter .8s;}
 .full-film:hover img{filter:brightness(.35) grayscale(0);}
 .full-film-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.95) 0%,rgba(0,0,0,.2) 50%,transparent 100%);}
@@ -74,11 +74,13 @@ section{position:relative;scroll-snap-align:start;}
 .ff-play{position:absolute;top:50%;right:64px;transform:translateY(-50%);width:80px;height:80px;border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:28px;color:rgba(255,255,255,.3);transition:all .3s;}
 .full-film:hover .ff-play{border-color:var(--red);color:var(--red);transform:translateY(-50%) scale(1.1);}
 
-.film-grid-section{width:100%;min-height:100vh;background:var(--bg);padding:80px 48px;}
+.film-grid-section{width:100%;min-height:100vh;background:var(--bg);padding:80px 48px;scroll-snap-align:start;}
+.clips-grid-section{width:100%;min-height:100vh;background:var(--bg);padding:80px 48px;scroll-snap-align:start;}
 .section-head{display:flex;align-items:baseline;gap:16px;margin-bottom:48px;}
 .sh-num{font-size:80px;color:#111;line-height:1;letter-spacing:-2px;}
 .sh-label{font-size:16px;letter-spacing:4px;color:#2a2a2a;font-family:'Space Mono',monospace;}
 .sh-line{flex:1;height:1px;background:#111;align-self:center;}
+
 .film-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:#111;}
 .fg-item{position:relative;overflow:hidden;aspect-ratio:16/10;cursor:none;}
 .fg-item img{width:100%;height:100%;object-fit:cover;filter:brightness(.5) grayscale(.3);transition:filter .5s,transform .6s cubic-bezier(.16,1,.3,1);}
@@ -91,7 +93,6 @@ section{position:relative;scroll-snap-align:start;}
 .fg-t{font-size:clamp(16px,2vw,24px);color:var(--white);line-height:1;}
 .fg-g{font-size:9px;letter-spacing:1px;color:rgba(255,255,255,.4);font-family:'Space Mono',monospace;margin-top:4px;text-transform:uppercase;}
 
-.clips-grid-section{width:100%;min-height:100vh;background:var(--bg);padding:80px 48px;}
 .clips-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:#111;}
 .cg-item{position:relative;overflow:hidden;aspect-ratio:16/9;cursor:none;}
 .cg-item img{width:100%;height:100%;object-fit:cover;filter:brightness(.4) grayscale(.4);transition:filter .5s,transform .6s;}
@@ -103,13 +104,18 @@ section{position:relative;scroll-snap-align:start;}
 .cg-a{font-size:8px;letter-spacing:3px;color:var(--red);font-family:'Space Mono',monospace;margin-bottom:2px;}
 .cg-t{font-size:clamp(13px,1.5vw,18px);color:var(--white);line-height:1;}
 
+.ticker{background:var(--red);overflow:hidden;padding:10px 0;white-space:nowrap;}
+.ticker-t{display:inline-block;animation:tk 18s linear infinite;}
+@keyframes tk{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.ticker-t span{font-size:13px;letter-spacing:4px;color:var(--bg);margin-right:48px;}
+
 #s7{width:100%;height:100vh;background:#000;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:48px;scroll-snap-align:start;}
 .reel-title{font-size:clamp(60px,10vw,120px);color:var(--white);letter-spacing:4px;margin-bottom:48px;text-align:center;}
 .reel-title span{color:var(--red);}
 .reel-player{position:relative;width:100%;max-width:1000px;padding-bottom:min(56.25%,calc(100vh - 280px));height:0;overflow:hidden;}
 .reel-player iframe{position:absolute;inset:0;width:100%;height:100%;border:none;}
 
-.contact-section{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid #111;min-height:100vh;scroll-snap-align:start;}
+#s8{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid #111;min-height:100vh;scroll-snap-align:start;}
 .cl{padding:80px 64px;border-right:1px solid #111;display:flex;flex-direction:column;justify-content:center;}
 .cl-name{font-size:clamp(48px,7vw,90px);line-height:.88;color:var(--white);margin-bottom:16px;}
 .cl-name span{color:var(--red);}
@@ -123,11 +129,6 @@ section{position:relative;scroll-snap-align:start;}
 .ci-val a{color:var(--white);transition:color .2s;}
 .ci-val a:hover{color:var(--red);}
 
-.ticker{background:var(--red);overflow:hidden;padding:10px 0;white-space:nowrap;}
-.ticker-t{display:inline-block;animation:tk 18s linear infinite;}
-@keyframes tk{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-.ticker-t span{font-size:13px;letter-spacing:4px;color:var(--bg);margin-right:48px;}
-
 footer{display:flex;justify-content:space-between;align-items:center;padding:20px 48px;border-top:1px solid #0a0a0a;background:var(--bg);}
 .fc{font-size:10px;letter-spacing:2px;color:#161616;font-family:'Space Mono',monospace;}
 .fr{font-size:10px;letter-spacing:2px;color:#161616;font-family:'Space Mono',monospace;}
@@ -138,11 +139,11 @@ footer{display:flex;justify-content:space-between;align-items:center;padding:20p
   .nav-r .nl{display:none;}
   .hero-name{font-size:18vw;}
   .full-film-info{padding:32px 24px;}
-  .ff-play{right:24px;}
+  .ff-play{right:24px;width:56px;height:56px;font-size:20px;}
   .film-grid-section,.clips-grid-section{padding:48px 20px;}
   .film-grid{grid-template-columns:repeat(2,1fr);}
   .clips-grid{grid-template-columns:repeat(2,1fr);}
-  .contact-section{grid-template-columns:1fr;}
+  #s8{grid-template-columns:1fr;}
   .cl{border-right:none;border-bottom:1px solid #111;padding:48px 24px;}
   .cr{padding:48px 24px;}
   #s7{padding:24px;}
@@ -159,7 +160,7 @@ footer{display:flex;justify-content:space-between;align-items:center;padding:20p
 <div class="modal" id="modal" onclick="closeModal(event)">
   <div class="modal-inner">
     <button class="modal-x" onclick="closeModal()">✕ ЗАКРЫТЬ</button>
-    <div class="modal-v"><iframe id="msrc" src="" allowfullscreen allow="autoplay"></iframe></div>
+    <div class="modal-v"><iframe id="msrc" src="" allowfullscreen allow="autoplay; fullscreen"></iframe></div>
   </div>
 </div>
 
@@ -170,7 +171,7 @@ footer{display:flex;justify-content:space-between;align-items:center;padding:20p
     <a href="#s3" class="nl en">FILMS</a>
     <a href="#s5" class="nl ru">КЛИПЫ</a>
     <a href="#s5" class="nl en">MUSIC VIDEOS</a>
-    <a href="#s7" class="nl">COMEDYREEL</a>
+    <a href="#s7" class="nl">REEL</a>
     <a href="#s8" class="nl ru">КОНТАКТ</a>
     <a href="#s8" class="nl en">CONTACT</a>
     <div class="lng">
@@ -181,14 +182,15 @@ footer{display:flex;justify-content:space-between;align-items:center;padding:20p
   </div>
 </nav>
 
-<!-- S1: HERO VIDEO -->
 <section id="s1">
   <div class="video-wrap">
-    <!-- ======================================= -->
-    <!-- ЗАМЕНИ ТВОЙ_VIMEO_ID на ID своего видео -->
-    <!-- Пример: vimeo.com/123456789 → 123456789  -->
-    <!-- ======================================= -->
-    <iframe src="https://player.vimeo.com/video/ТВОЙ_VIMEO_ID?autoplay=1&loop=1&muted=1&background=1" allow="autoplay; fullscreen"></iframe>
+    <!-- ЗАМЕНИ ТВОЙ_VIMEO_ID на ID видео с Vimeo -->
+    <iframe
+      src="https://player.vimeo.com/video/ТВОЙ_VIMEO_ID?autoplay=1&loop=1&muted=1&background=1"
+      allow="autoplay; fullscreen; picture-in-picture"
+      allowfullscreen
+      referrerpolicy="strict-origin-when-cross-origin">
+    </iframe>
   </div>
   <div class="video-placeholder"><span class="vp-text">// ЗАМЕНИ ТВОЙ_VIMEO_ID В КОДЕ</span></div>
   <div class="hero-overlay"></div>
@@ -200,7 +202,6 @@ footer{display:flex;justify-content:space-between;align-items:center;padding:20p
   <div class="scroll-hint"><span class="ru">СМОТРЕТЬ</span><span class="en">SCROLL</span></div>
 </section>
 
-<!-- S2: ДУБРОВСКИЙ -->
 <section id="s2">
   <div class="full-film" onclick="openVimeo('1189097807')">
     <img src="https://images.cybersport.ru/images/og-jpg/plain/00/007bb0e8-7ca7-48cd-be3b-58a4a7ff5599.jpg" alt="Дубровский">
@@ -217,7 +218,6 @@ footer{display:flex;justify-content:space-between;align-items:center;padding:20p
   </div>
 </section>
 
-<!-- S3: FILM GRID 1 -->
 <section id="s3" class="film-grid-section">
   <div class="section-head">
     <div class="sh-num">01</div>
@@ -259,8 +259,7 @@ footer{display:flex;justify-content:space-between;align-items:center;padding:20p
   </div>
 </section>
 
-<!-- S4: FILM GRID 2 -->
-<section id="s4" class="film-grid-section" style="padding-top:0;">
+<section id="s4" class="film-grid-section" style="padding-top:0;scroll-snap-align:start;">
   <div class="film-grid">
     <div class="fg-item" onclick="openYoutube('6lZa1POZ4Vs')">
       <img src="https://www.kino-teatr.ru/movie/poster/149168/115123.jpg" alt="">
@@ -319,10 +318,9 @@ footer{display:flex;justify-content:space-between;align-items:center;padding:20p
   </div>
 </div>
 
-<!-- S5: FEATURED CLIP -->
 <section id="s5">
   <div class="full-film" onclick="openYoutube('T7sb0jf-jKw')">
-    <img src="https://img.youtube.com/vi/T7sb0jf-jKw/maxresdefault.jpg" alt="Агутин — Самба" onerror="this.src='https://img.youtube.com/vi/T7sb0jf-jKw/hqdefault.jpg'">
+    <img src="https://img.youtube.com/vi/T7sb0jf-jKw/mqdefault.jpg" alt="Агутин — Самба">
     <div class="full-film-overlay"></div>
     <div class="full-film-info">
       <div class="ff-label">// MUSIC VIDEO</div>
@@ -334,7 +332,6 @@ footer{display:flex;justify-content:space-between;align-items:center;padding:20p
   </div>
 </section>
 
-<!-- S6: CLIPS GRID -->
 <section id="s6" class="clips-grid-section">
   <div class="section-head">
     <div class="sh-num">02</div>
@@ -349,17 +346,17 @@ footer{display:flex;justify-content:space-between;align-items:center;padding:20p
       <div class="cg-info"><div class="cg-a ru">ЛЕОНИД АГУТИН</div><div class="cg-a en">LEONID AGUTIN</div><div class="cg-t">«ПО ТЕБЕ СКУЧАЮТ БАРЫ»</div></div>
     </div>
     <div class="cg-item" onclick="openYoutube('qoCqd56lMa8')">
-      <img src="https://img.youtube.com/vi/qoCqd56lMa8/maxresdefault.jpg" alt="" onerror="this.src='https://img.youtube.com/vi/qoCqd56lMa8/hqdefault.jpg'">
+      <img src="https://img.youtube.com/vi/qoCqd56lMa8/mqdefault.jpg" alt="">
       <div class="cg-overlay"></div>
       <div class="cg-info"><div class="cg-a">LEONID AGUTIN</div><div class="cg-t">«FUNKY CHA»</div></div>
     </div>
     <div class="cg-item" onclick="openYoutube('kSwX5UJK3Oc')">
-      <img src="https://img.youtube.com/vi/kSwX5UJK3Oc/maxresdefault.jpg" alt="" onerror="this.src='https://img.youtube.com/vi/kSwX5UJK3Oc/hqdefault.jpg'">
+      <img src="https://img.youtube.com/vi/kSwX5UJK3Oc/mqdefault.jpg" alt="">
       <div class="cg-overlay"></div>
       <div class="cg-info"><div class="cg-a ru">ЛЕОНИД АГУТИН</div><div class="cg-a en">LEONID AGUTIN</div><div class="cg-t">«ВКЛЮЧИТЕ СВЕТ»</div></div>
     </div>
     <div class="cg-item" onclick="openYoutube('jlOV7qsLGRg')">
-      <img src="https://img.youtube.com/vi/jlOV7qsLGRg/maxresdefault.jpg" alt="" onerror="this.src='https://img.youtube.com/vi/jlOV7qsLGRg/hqdefault.jpg'">
+      <img src="https://img.youtube.com/vi/jlOV7qsLGRg/mqdefault.jpg" alt="">
       <div class="cg-overlay"></div>
       <div class="cg-info"><div class="cg-a ru">АГУТИН И ВАРУМ</div><div class="cg-a en">AGUTIN & VARUM</div><div class="cg-t">«Я НЕ ТОТ, ТЫ НЕ ТА»</div></div>
     </div>
@@ -374,12 +371,12 @@ footer{display:flex;justify-content:space-between;align-items:center;padding:20p
       <div class="cg-info"><div class="cg-a ru">ОТПЕТЫЕ МОШЕННИКИ И АГУТИН</div><div class="cg-a en">OTPETYE MOSHENNIKI & AGUTIN</div><div class="cg-t">«90'S»</div></div>
     </div>
     <div class="cg-item" onclick="openYoutube('m72GWoBgw9o')">
-      <img src="https://img.youtube.com/vi/m72GWoBgw9o/maxresdefault.jpg" alt="" onerror="this.src='https://img.youtube.com/vi/m72GWoBgw9o/hqdefault.jpg'">
+      <img src="https://img.youtube.com/vi/m72GWoBgw9o/mqdefault.jpg" alt="">
       <div class="cg-overlay"></div>
       <div class="cg-info"><div class="cg-a ru">БИ-2 И АГАТА КРИСТИ</div><div class="cg-a en">BI-2 & AGATA KRISTI</div><div class="cg-t">«ВСЁ, КАК ОН СКАЗАЛ»</div></div>
     </div>
     <div class="cg-item" onclick="openYoutube('xR_O6OXa_4Y')">
-      <img src="https://img.youtube.com/vi/xR_O6OXa_4Y/maxresdefault.jpg" alt="" onerror="this.src='https://img.youtube.com/vi/xR_O6OXa_4Y/hqdefault.jpg'">
+      <img src="https://img.youtube.com/vi/xR_O6OXa_4Y/mqdefault.jpg" alt="">
       <div class="cg-overlay"></div>
       <div class="cg-info"><div class="cg-a ru">ДМИТРИЙ МАЛИКОВ</div><div class="cg-a en">DMITRY MALIKOV</div><div class="cg-t">«ДВА ПИСТОЛЕТА»</div></div>
     </div>
@@ -389,38 +386,43 @@ footer{display:flex;justify-content:space-between;align-items:center;padding:20p
       <div class="cg-info"><div class="cg-a ru">МУМИЙ ТРОЛЛЬ</div><div class="cg-a en">MUMIY TROLL</div><div class="cg-t">«РЕВОЛЮЦИЯ»</div></div>
     </div>
     <div class="cg-item" onclick="openYoutube('xcI_cYQ0KSo')">
-      <img src="https://img.youtube.com/vi/xcI_cYQ0KSo/maxresdefault.jpg" alt="" onerror="this.src='https://img.youtube.com/vi/xcI_cYQ0KSo/hqdefault.jpg'">
+      <img src="https://img.youtube.com/vi/xcI_cYQ0KSo/mqdefault.jpg" alt="">
       <div class="cg-overlay"></div>
       <div class="cg-info"><div class="cg-a ru">ЛИГАЛАЙЗ</div><div class="cg-a en">LIGALAIZ</div><div class="cg-t">«БУДУЩИЕ МАМЫ»</div></div>
     </div>
     <div class="cg-item" onclick="openYoutube('Ww3uPEpWneY')">
-      <img src="https://img.youtube.com/vi/Ww3uPEpWneY/maxresdefault.jpg" alt="" onerror="this.src='https://img.youtube.com/vi/Ww3uPEpWneY/hqdefault.jpg'">
+      <img src="https://img.youtube.com/vi/Ww3uPEpWneY/mqdefault.jpg" alt="">
       <div class="cg-overlay"></div>
       <div class="cg-info"><div class="cg-a ru">ВИНОГРАД</div><div class="cg-a en">VINOGRAD</div><div class="cg-t">«НЕБО НАД НАМИ»</div></div>
     </div>
     <div class="cg-item" onclick="openYoutube('JIaRB_u86fU')">
-      <img src="https://img.youtube.com/vi/JIaRB_u86fU/maxresdefault.jpg" alt="" onerror="this.src='https://img.youtube.com/vi/JIaRB_u86fU/hqdefault.jpg'">
+      <img src="https://img.youtube.com/vi/JIaRB_u86fU/mqdefault.jpg" alt="">
       <div class="cg-overlay"></div>
       <div class="cg-info"><div class="cg-a ru">ОЛЬГА РОМАНОВСКАЯ</div><div class="cg-a en">OLGA ROMANOVSKAYA</div><div class="cg-t">«ТАЙНАЯ ЛЮБОВЬ»</div></div>
     </div>
     <div class="cg-item" onclick="openYoutube('DIac05tWDBY')">
-      <img src="https://img.youtube.com/vi/DIac05tWDBY/maxresdefault.jpg" alt="" onerror="this.src='https://img.youtube.com/vi/DIac05tWDBY/hqdefault.jpg'">
+      <img src="https://img.youtube.com/vi/DIac05tWDBY/mqdefault.jpg" alt="">
       <div class="cg-overlay"></div>
       <div class="cg-info"><div class="cg-a ru">ПАВЕЛ ВОЛЯ</div><div class="cg-a en">PAVEL VOLYA</div><div class="cg-t">«ОФИГЕННО»</div></div>
     </div>
   </div>
 </section>
 
-<!-- S7: REEL -->
 <section id="s7">
   <div class="reel-title">SHOW<span>REEL</span></div>
   <div class="reel-player">
-    <iframe src="https://vimeo.com/225398671?fl=ip&fe=ec" allowfullscreen allow="autoplay; fullscreen"></iframe>
+    <!-- ЗАМЕНИ REEL_VIMEO_ID на ID шоурила с Vimeo -->
+    <!-- Убедись: Vimeo → Settings → Privacy → Where can this be embedded? → Anywhere -->
+    <iframe
+      src="https://vimeo.com/225398671?fl=ip&fe=ec"
+      allow="autoplay; fullscreen; picture-in-picture"
+      allowfullscreen
+      referrerpolicy="strict-origin-when-cross-origin">
+    </iframe>
   </div>
 </section>
 
-<!-- S8: CONTACT -->
-<section id="s8" class="contact-section">
+<section id="s8">
   <div class="cl">
     <div class="cl-name">КИРИЛЛ <span>/</span><br>КУЗИН</div>
     <div class="cl-sub ru">РЕЖИССЁР · МОСКВА · С 1998</div>
@@ -435,16 +437,20 @@ footer{display:flex;justify-content:space-between;align-items:center;padding:20p
       <div class="ci-ico">@</div>
       <div>
         <div class="ci-lbl">EMAIL</div>
+        <!-- ЗАМЕНИ на свой рабочий email -->
         <div class="ci-val"><a href="mailto:bildyev@gmail.com">bildyev@GMAIL.COM</a></div>
       </div>
     </div>
     <div class="ci">
       <div class="ci-ico">▶</div>
-      <div><div class="ci-lbl">COMEDYSHOWREEL</div><div class="ci-val"><a href="#s7">СМОТРЕТЬ ВЫШЕ</a></div></div>
+      <div><div class="ci-lbl">SHOWREEL</div><div class="ci-val"><a href="#s7">СМОТРЕТЬ ВЫШЕ</a></div></div>
     </div>
     <div class="ci">
       <div class="ci-ico">IN</div>
-      <div><div class="ci-lbl">LINKEDIN</div><div class="ci-val"><a href="https://linkedin.com/in/kirillkuzin" target="_blank">KIRILLKUZIN</a></div></div>
+      <div>
+        <div class="ci-lbl">LINKEDIN</div>
+        <div class="ci-val"><a href="https://www.linkedin.com/in/kirill-kuzin-74217230/" target="_blank">KIRILLKUZIN</a></div>
+      </div>
     </div>
   </div>
 </section>
@@ -464,13 +470,11 @@ document.querySelectorAll('.full-film,.fg-item,.cg-item,.nl,.lng span,.modal-x,a
   el.addEventListener('mouseenter', function() { cur.classList.add('h'); });
   el.addEventListener('mouseleave', function() { cur.classList.remove('h'); });
 });
-
 window.addEventListener('scroll', function() {
   document.getElementById('nav').classList.toggle('s', window.scrollY > 80);
 });
-
 function openVimeo(id) {
-  document.getElementById('msrc').src = 'https://player.vimeo.com/video/'+id+'?autoplay=1';
+  document.getElementById('msrc').src = 'https://player.vimeo.com/video/'+id+'?autoplay=1&badge=0';
   document.getElementById('modal').classList.add('on');
   document.body.style.overflow = 'hidden';
 }
@@ -486,7 +490,6 @@ function closeModal(e) {
   document.body.style.overflow = '';
 }
 document.addEventListener('keydown', function(e) { if (e.key==='Escape') closeModal(); });
-
 function setLang(lang) {
   document.getElementById('bru').classList.toggle('on', lang==='ru');
   document.getElementById('ben').classList.toggle('on', lang==='en');
