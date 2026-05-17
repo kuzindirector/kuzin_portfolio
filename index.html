@@ -30,12 +30,12 @@ a{text-decoration:none;color:inherit;}
 
 nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;justify-content:space-between;align-items:center;padding:24px 48px;transition:background .4s;}
 nav.s{background:rgba(6,6,6,.95);backdrop-filter:blur(10px);}
-.logo{font-size:22px;letter-spacing:3px;color:var(--white);}
+.logo{font-size:22px;letter-spacing:3px;color:var(--white);font-family:'Bebas Neue',sans-serif;}
 .logo em{color:var(--red);font-style:normal;}
 .nav-r{display:flex;gap:32px;align-items:center;}
-.nl{font-size:14px;letter-spacing:3px;color:rgba(255,255,255,.3);transition:color .2s;}
+.nl{font-size:14px;letter-spacing:3px;color:rgba(255,255,255,.3);transition:color .2s;font-family:'Bebas Neue',sans-serif;}
 .nl:hover{color:var(--red);}
-.lng{font-size:13px;letter-spacing:2px;}
+.lng{font-size:13px;letter-spacing:2px;font-family:'Bebas Neue',sans-serif;}
 .lng span{cursor:none;color:rgba(255,255,255,.25);transition:color .2s;}
 .lng span.on{color:var(--red);}
 .lng-s{color:#222;margin:0 5px;}
@@ -53,7 +53,7 @@ section{position:relative;scroll-snap-align:start;}
 .vp-text{font-size:11px;letter-spacing:5px;color:#1a1a1a;font-family:'Space Mono',monospace;}
 .hero-overlay{position:absolute;inset:0;z-index:2;background:linear-gradient(to bottom,rgba(0,0,0,.2) 0%,rgba(0,0,0,.05) 40%,rgba(0,0,0,.7) 85%,rgba(6,6,6,1) 100%);}
 .hero-center{position:absolute;inset:0;z-index:3;display:flex;flex-direction:column;align-items:center;justify-content:center;}
-.hero-name{font-size:clamp(80px,16vw,200px);line-height:.88;letter-spacing:2px;color:var(--white);text-align:center;}
+.hero-name{font-size:clamp(80px,16vw,200px);line-height:.88;letter-spacing:2px;color:var(--white);text-align:center;font-family:'Bebas Neue',sans-serif;}
 .hero-name .sl{color:var(--red);}
 .hero-sub{font-size:clamp(10px,1.2vw,14px);letter-spacing:8px;color:rgba(255,255,255,.3);margin-top:20px;font-family:'Space Mono',monospace;}
 .scroll-hint{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:4;display:flex;flex-direction:column;align-items:center;gap:8px;animation:br 3s ease-in-out infinite;}
@@ -69,7 +69,7 @@ section{position:relative;scroll-snap-align:start;}
 .full-film-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.95) 0%,rgba(0,0,0,.2) 50%,transparent 100%);}
 .full-film-info{position:absolute;bottom:0;left:0;right:0;padding:48px 64px;z-index:2;}
 .ff-label{font-size:11px;letter-spacing:5px;color:var(--red);margin-bottom:12px;font-family:'Space Mono',monospace;}
-.ff-title{font-size:clamp(48px,8vw,100px);line-height:.9;letter-spacing:1px;color:var(--white);margin-bottom:12px;}
+.ff-title{font-size:clamp(48px,8vw,100px);line-height:.9;letter-spacing:1px;color:var(--white);margin-bottom:12px;font-family:'Bebas Neue',sans-serif;}
 .ff-genre{font-size:13px;letter-spacing:3px;color:rgba(255,255,255,.4);font-family:'Space Mono',monospace;text-transform:uppercase;}
 .ff-play{position:absolute;top:50%;right:64px;transform:translateY(-50%);width:80px;height:80px;border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:28px;color:rgba(255,255,255,.3);transition:all .3s;}
 .full-film:hover .ff-play{border-color:var(--red);color:var(--red);transform:translateY(-50%) scale(1.1);}
@@ -77,7 +77,7 @@ section{position:relative;scroll-snap-align:start;}
 .film-grid-section{width:100%;min-height:100vh;background:var(--bg);padding:80px 48px;scroll-snap-align:start;}
 .clips-grid-section{width:100%;min-height:100vh;background:var(--bg);padding:80px 48px;scroll-snap-align:start;}
 .section-head{display:flex;align-items:baseline;gap:16px;margin-bottom:48px;}
-.sh-num{font-size:80px;color:#111;line-height:1;letter-spacing:-2px;}
+.sh-num{font-size:80px;color:#111;line-height:1;letter-spacing:-2px;font-family:'Bebas Neue',sans-serif;}
 .sh-label{font-size:16px;letter-spacing:4px;color:#2a2a2a;font-family:'Space Mono',monospace;}
 .sh-line{flex:1;height:1px;background:#111;align-self:center;}
 
@@ -90,7 +90,7 @@ section{position:relative;scroll-snap-align:start;}
 .fg-info{position:absolute;bottom:0;left:0;right:0;padding:20px 24px;transform:translateY(8px);opacity:0;transition:all .3s;}
 .fg-item:hover .fg-info{transform:translateY(0);opacity:1;}
 .fg-y{font-size:10px;letter-spacing:3px;color:var(--red);font-family:'Space Mono',monospace;margin-bottom:4px;}
-.fg-t{font-size:clamp(16px,2vw,24px);color:var(--white);line-height:1;}
+.fg-t{font-size:clamp(16px,2vw,24px);color:var(--white);line-height:1;font-family:'Bebas Neue',sans-serif;}
 .fg-g{font-size:9px;letter-spacing:1px;color:rgba(255,255,255,.4);font-family:'Space Mono',monospace;margin-top:4px;text-transform:uppercase;}
 
 .clips-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:#111;}
@@ -102,22 +102,22 @@ section{position:relative;scroll-snap-align:start;}
 .cg-info{position:absolute;bottom:0;left:0;right:0;padding:14px 16px;transform:translateY(6px);opacity:0;transition:all .3s;}
 .cg-item:hover .cg-info{transform:translateY(0);opacity:1;}
 .cg-a{font-size:8px;letter-spacing:3px;color:var(--red);font-family:'Space Mono',monospace;margin-bottom:2px;}
-.cg-t{font-size:clamp(13px,1.5vw,18px);color:var(--white);line-height:1;}
+.cg-t{font-size:clamp(13px,1.5vw,18px);color:var(--white);line-height:1;font-family:'Bebas Neue',sans-serif;}
 
 .ticker{background:var(--red);overflow:hidden;padding:10px 0;white-space:nowrap;}
 .ticker-t{display:inline-block;animation:tk 18s linear infinite;}
 @keyframes tk{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-.ticker-t span{font-size:13px;letter-spacing:4px;color:var(--bg);margin-right:48px;}
+.ticker-t span{font-size:13px;letter-spacing:4px;color:var(--bg);margin-right:48px;font-family:'Bebas Neue',sans-serif;}
 
 #s7{width:100%;height:100vh;background:#000;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:48px;scroll-snap-align:start;}
-.reel-title{font-size:clamp(60px,10vw,120px);color:var(--white);letter-spacing:4px;margin-bottom:48px;text-align:center;}
+.reel-title{font-size:clamp(60px,10vw,120px);color:var(--white);letter-spacing:4px;margin-bottom:48px;text-align:center;font-family:'Bebas Neue',sans-serif;}
 .reel-title span{color:var(--red);}
 .reel-player{position:relative;width:100%;max-width:1000px;padding-bottom:min(56.25%,calc(100vh - 280px));height:0;overflow:hidden;}
 .reel-player iframe{position:absolute;inset:0;width:100%;height:100%;border:none;}
 
 #s8{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid #111;min-height:100vh;scroll-snap-align:start;}
 .cl{padding:80px 64px;border-right:1px solid #111;display:flex;flex-direction:column;justify-content:center;}
-.cl-name{font-size:clamp(48px,7vw,90px);line-height:.88;color:var(--white);margin-bottom:16px;}
+.cl-name{font-size:clamp(48px,7vw,90px);line-height:.88;color:var(--white);margin-bottom:16px;font-family:'Bebas Neue',sans-serif;}
 .cl-name span{color:var(--red);}
 .cl-sub{font-size:10px;letter-spacing:4px;color:#2a2a2a;font-family:'Space Mono',monospace;}
 .cr{padding:80px 64px;display:flex;flex-direction:column;justify-content:center;}
@@ -125,7 +125,7 @@ section{position:relative;scroll-snap-align:start;}
 .ci:last-child{border-bottom:none;padding-bottom:0;}
 .ci-ico{width:36px;height:36px;border:1px solid #1a1a1a;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--red);font-size:13px;font-family:'Space Mono',monospace;}
 .ci-lbl{font-size:8px;letter-spacing:3px;color:#222;font-family:'Space Mono',monospace;margin-bottom:5px;}
-.ci-val{font-size:16px;color:var(--white);}
+.ci-val{font-size:16px;color:var(--white);font-family:'Bebas Neue',sans-serif;}
 .ci-val a{color:var(--white);transition:color .2s;}
 .ci-val a:hover{color:var(--red);}
 
@@ -171,8 +171,8 @@ footer{display:flex;justify-content:space-between;align-items:center;padding:20p
     <a href="#s3" class="nl en">FILMS</a>
     <a href="#s5" class="nl ru">КЛИПЫ</a>
     <a href="#s5" class="nl en">MUSIC VIDEOS</a>
-    <a href="#s7" class="nl">КАМЕДИ ШОУРИЛ</a>
-    <a href="#s7" class="nl">COMEDYREEL</a>
+    <a href="#s7" class="nl ru">ШОУРИЛ</a>
+    <a href="#s7" class="nl en">SHOWREEL</a>
     <a href="#s8" class="nl ru">КОНТАКТ</a>
     <a href="#s8" class="nl en">CONTACT</a>
     <div class="lng">
@@ -336,94 +336,79 @@ footer{display:flex;justify-content:space-between;align-items:center;padding:20p
     <div class="sh-line"></div>
   </div>
   <div class="clips-grid">
-
-    <!-- ptsb.jpg — загружен в репозиторий -->
     <div class="cg-item" onclick="openVimeo('545254917')">
-      <img src="ptsb.jpg" alt="">
+      <img src="https://i.ytimg.com/vi/CTZqzjo-7Jg/maxresdefault.jpg" alt="">
       <div class="cg-overlay"></div>
       <div class="cg-info"><div class="cg-a ru">ЛЕОНИД АГУТИН</div><div class="cg-a en">LEONID AGUTIN</div><div class="cg-t">«ПО ТЕБЕ СКУЧАЮТ БАРЫ»</div></div>
     </div>
-
     <div class="cg-item" onclick="openYoutube('qoCqd56lMa8')">
       <img src="https://img.youtube.com/vi/qoCqd56lMa8/mqdefault.jpg" alt="">
       <div class="cg-overlay"></div>
       <div class="cg-info"><div class="cg-a">LEONID AGUTIN</div><div class="cg-t">«FUNKY CHA»</div></div>
     </div>
-
     <div class="cg-item" onclick="openYoutube('kSwX5UJK3Oc')">
       <img src="https://img.youtube.com/vi/kSwX5UJK3Oc/mqdefault.jpg" alt="">
       <div class="cg-overlay"></div>
       <div class="cg-info"><div class="cg-a ru">ЛЕОНИД АГУТИН</div><div class="cg-a en">LEONID AGUTIN</div><div class="cg-t">«ВКЛЮЧИТЕ СВЕТ»</div></div>
     </div>
-
     <div class="cg-item" onclick="openYoutube('jlOV7qsLGRg')">
       <img src="https://img.youtube.com/vi/jlOV7qsLGRg/mqdefault.jpg" alt="">
       <div class="cg-overlay"></div>
       <div class="cg-info"><div class="cg-a ru">АГУТИН И ВАРУМ</div><div class="cg-a en">AGUTIN & VARUM</div><div class="cg-t">«Я НЕ ТОТ, ТЫ НЕ ТА»</div></div>
     </div>
-
     <div class="cg-item" onclick="openVimeo('234075161')">
       <img src="https://i.ytimg.com/vi/I1urigRe0KQ/maxresdefault.jpg" alt="">
       <div class="cg-overlay"></div>
       <div class="cg-info"><div class="cg-a ru">АНЖЕЛИКА ВАРУМ</div><div class="cg-a en">ANZHELIKA VARUM</div><div class="cg-t">«ДЕВОЧКИ»</div></div>
     </div>
-
     <div class="cg-item" onclick="openVimeo('336313086')">
       <img src="https://i.ytimg.com/vi/8UDwgPVKb30/maxresdefault.jpg" alt="">
       <div class="cg-overlay"></div>
       <div class="cg-info"><div class="cg-a ru">ОТПЕТЫЕ МОШЕННИКИ И АГУТИН</div><div class="cg-a en">OTPETYE MOSHENNIKI & AGUTIN</div><div class="cg-t">«90'S»</div></div>
     </div>
-
     <div class="cg-item" onclick="openYoutube('m72GWoBgw9o')">
       <img src="https://img.youtube.com/vi/m72GWoBgw9o/mqdefault.jpg" alt="">
       <div class="cg-overlay"></div>
       <div class="cg-info"><div class="cg-a ru">БИ-2 И АГАТА КРИСТИ</div><div class="cg-a en">BI-2 & AGATA KRISTI</div><div class="cg-t">«ВСЁ, КАК ОН СКАЗАЛ»</div></div>
     </div>
-
     <div class="cg-item" onclick="openYoutube('xR_O6OXa_4Y')">
       <img src="https://img.youtube.com/vi/xR_O6OXa_4Y/mqdefault.jpg" alt="">
       <div class="cg-overlay"></div>
       <div class="cg-info"><div class="cg-a ru">ДМИТРИЙ МАЛИКОВ</div><div class="cg-a en">DMITRY MALIKOV</div><div class="cg-t">«ДВА ПИСТОЛЕТА»</div></div>
     </div>
-
-    <!-- mt.jpg — загружен в репозиторий -->
     <div class="cg-item" onclick="openVimeo('1192726997')">
-      <img src="mt.jpg" alt="">
+      <img src="https://tekst-pesni.online/wp-content/uploads/2021/01/getImage7-4.jpg" alt="">
       <div class="cg-overlay"></div>
       <div class="cg-info"><div class="cg-a ru">МУМИЙ ТРОЛЛЬ</div><div class="cg-a en">MUMIY TROLL</div><div class="cg-t">«РЕВОЛЮЦИЯ»</div></div>
     </div>
-
     <div class="cg-item" onclick="openYoutube('xcI_cYQ0KSo')">
       <img src="https://img.youtube.com/vi/xcI_cYQ0KSo/mqdefault.jpg" alt="">
       <div class="cg-overlay"></div>
       <div class="cg-info"><div class="cg-a ru">ЛИГАЛАЙЗ</div><div class="cg-a en">LIGALAIZ</div><div class="cg-t">«БУДУЩИЕ МАМЫ»</div></div>
     </div>
-
     <div class="cg-item" onclick="openYoutube('mW1t9m1ePto')">
       <img src="https://i.ytimg.com/vi/FW7Q_UehI-k/maxresdefault.jpg" alt="">
       <div class="cg-overlay"></div>
       <div class="cg-info"><div class="cg-a ru">ВИНОГРАД</div><div class="cg-a en">VINOGRAD</div><div class="cg-t">«НЕБО НАД НАМИ»</div></div>
     </div>
-
     <div class="cg-item" onclick="openYoutube('p-TWZpckrJw')">
       <img src="https://youix.com/contents/videos_screenshots/11000/11682/preview.jpg" alt="">
       <div class="cg-overlay"></div>
       <div class="cg-info"><div class="cg-a ru">ОЛЬГА РОМАНОВСКАЯ</div><div class="cg-a en">OLGA ROMANOVSKAYA</div><div class="cg-t">«ТАЙНАЯ ЛЮБОВЬ»</div></div>
     </div>
-
     <div class="cg-item" onclick="openYoutube('DIac05tWDBY')">
       <img src="https://img.youtube.com/vi/DIac05tWDBY/mqdefault.jpg" alt="">
       <div class="cg-overlay"></div>
       <div class="cg-info"><div class="cg-a ru">ПАВЕЛ ВОЛЯ</div><div class="cg-a en">PAVEL VOLYA</div><div class="cg-t">«ОФИГЕННО»</div></div>
     </div>
-
   </div>
 </section>
 
 <section id="s7">
   <div class="reel-title">COMEDY<span>SHOWREEL</span></div>
   <div class="reel-player">
-    <iframe src="https://youtu.be/pgWqzlX_FVU" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    <!-- ИСПРАВЛЕНО: youtu.be → youtube.com/embed -->
+    <iframe src="https://www.youtube.com/embed/pgWqzlX_FVU" allow="autoplay; fullscreen" allowfullscreen></iframe>
   </div>
 </section>
 
@@ -442,8 +427,7 @@ footer{display:flex;justify-content:space-between;align-items:center;padding:20p
       <div class="ci-ico">@</div>
       <div>
         <div class="ci-lbl">EMAIL</div>
-        <!-- ЗАМЕНИ на свой рабочий email -->
-        <div class="ci-val"><a href="mailto:bildyev@gmail.com">bildyev@GMAIL.COM</a></div>
+        <div class="ci-val"><a href="mailto:bildyev@gmail.com">BILDYEV@GMAIL.COM</a></div>
       </div>
     </div>
     <div class="ci">
@@ -454,7 +438,6 @@ footer{display:flex;justify-content:space-between;align-items:center;padding:20p
       <div class="ci-ico">IN</div>
       <div>
         <div class="ci-lbl">LINKEDIN</div>
-        <!-- ЗАМЕНИ на свою ссылку LinkedIn -->
         <div class="ci-val"><a href="https://linkedin.com/in/kirillkuzin" target="_blank">KIRILLKUZIN</a></div>
       </div>
     </div>
