@@ -40,9 +40,8 @@ nav.s{background:rgba(6,6,6,.95);backdrop-filter:blur(10px);}
 .lng span.on{color:var(--red);}
 .lng-s{color:#222;margin:0 5px;}
 
-.en{display:none;}
-body.en .ru{display:none;}
-body.en .en{display:block;}
+body:not(.lang-en) .en{display:none;}
+body.lang-en .ru{display:none;}
 
 section{position:relative;scroll-snap-align:start;}
 
@@ -185,10 +184,12 @@ footer{display:flex;justify-content:space-between;align-items:center;padding:20p
 
 <section id="s1">
   <div class="video-wrap">
-    <!-- ЗАМЕНИ ТВОЙ_VIMEO_ID на ID видео с Vimeo -->
+    <!-- ФОНОВОЕ ВИДЕО ВРЕМЕННО СКРЫТО. Когда ролик появится на Vimeo:
+         уберите эти комментарии и подставьте номер ролика вместо ТВОЙ_VIMEO_ID
     <iframe src="https://player.vimeo.com/video/ТВОЙ_VIMEO_ID?autoplay=1&loop=1&muted=1&background=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    -->
   </div>
-  <div class="video-placeholder"><span class="vp-text">// ЗАМЕНИ ТВОЙ_VIMEO_ID В КОДЕ</span></div>
+  <div class="video-placeholder"></div>
   <div class="hero-overlay"></div>
   <div class="hero-center">
     <div class="hero-name">КИРИЛЛ <span class="sl">/</span> КУЗИН</div>
@@ -200,290 +201,290 @@ footer{display:flex;justify-content:space-between;align-items:center;padding:20p
 
 <section id="s2">
   <div class="full-film" onclick="openVimeo('1189097807')">
-    <img src="https://images.cybersport.ru/images/og-jpg/plain/00/007bb0e8-7ca7-48cd-be3b-58a4a7ff5599.jpg" alt="Дубровский">
-    <div class="full-film-overlay"></div>
-    <div class="full-film-info">
-      <div class="ff-label ru">// 2026 · В ЭФИРЕ</div>
-      <div class="ff-label en">// 2026 · film in theaters</div>
-      <div class="ff-title ru">ДУБРОВСКИЙ.<br>РУССКИЙ ЗОРРО</div>
-      <div class="ff-title en">DUBROVSKY.<br>RUSSIAN ZORRO</div>
-      <div class="ff-genre ru">НУАР · ПСЕВДОКЛАССИКА · ЛОМАЕТ СИСТЕМУ</div>
-      <div class="ff-genre en">NOIR · PSEUDO-CLASSIC · BREAKS THE SYSTEM</div>
-    </div>
-    <div class="ff-play">▶</div>
-  </div>
+<img src="https://images.cybersport.ru/images/og-jpg/plain/00/007bb0e8-7ca7-48cd-be3b-58a4a7ff5599.jpg" alt="Дубровский">
+<div class="full-film-overlay"></div>
+<div class="full-film-info">
+      <div class="ff-label ru">// 2026 · В ПРОИЗВОДСТВЕ</div>
+      <div class="ff-label en">// 2026 · IN PRODUCTION</div>
+<div class="ff-title ru">ДУБРОВСКИЙ.<br>РУССКИЙ ЗОРРО</div>
+<div class="ff-title en">DUBROVSKY.<br>RUSSIAN ZORRO</div>
+<div class="ff-genre ru">НУАР · ПСЕВДОКЛАССИКА · ЛОМАЕТ СИСТЕМУ</div>
+<div class="ff-genre en">NOIR · PSEUDO-CLASSIC · BREAKS THE SYSTEM</div>
+</div>
+<div class="ff-play">▶</div>
+</div>
 </section>
 
 <section id="s3" class="film-grid-section">
-  <div class="section-head">
-    <div class="sh-num">01</div>
-    <div class="sh-label ru">ФИЛЬМОГРАФИЯ</div>
-    <div class="sh-label en">FILMOGRAPHY</div>
-    <div class="sh-line"></div>
-  </div>
-  <div class="film-grid">
-    <div class="fg-item" onclick="openYoutube('LvN3fe44O5s')">
-      <img src="https://static.kinoafisha.info/k/trailers/1270/upload/trailers/ca78d28a4ada04ac58f80db9dcb58457.jpg" alt="">
-      <div class="fg-overlay"></div>
-      <div class="fg-info"><div class="fg-y">2025</div><div class="fg-t ru">ПИСЬМО ДЕДУ МОРОЗУ</div><div class="fg-t en">A LETTER TO SANTA</div><div class="fg-g ru">СЕМЕЙНОЕ КИНО</div><div class="fg-g en">FAMILY FILM</div></div>
-    </div>
-    <div class="fg-item" onclick="openYoutube('CITR_Z3nGZM')">
-      <img src="https://avatars.mds.yandex.net/i?id=da2e1f3979e26dcf54fe4caabc40cfc9_l-7045590-images-thumbs&n=13" alt="">
-      <div class="fg-overlay"></div>
-      <div class="fg-info"><div class="fg-y">2025</div><div class="fg-t ru">СЕРГИЙ ПРОТИВ НЕЧИСТИ: ЗОВ ПРЕДКОВ</div><div class="fg-t en">SERGIY VS EVIL: ANCESTORS CALL</div><div class="fg-g ru">ХОРРОР-ПАНК</div><div class="fg-g en">HORROR-PUNK</div></div>
-    </div>
-    <div class="fg-item" onclick="openVimeo('1189150732')">
-      <img src="https://www.kino-teatr.ru/movie/kadr/167346/1732161.jpg" alt="">
-      <div class="fg-overlay"></div>
-      <div class="fg-info"><div class="fg-y">2024</div><div class="fg-t ru">ЧЁРНЫЙ ЗАМОК</div><div class="fg-t en">THE BLACK CASTLE</div><div class="fg-g ru">ИСТОРИЧЕСКАЯ ДРАМА</div><div class="fg-g en">HISTORICAL DRAMA</div></div>
-    </div>
-    <div class="fg-item" onclick="window.open('https://vkvideo.ru/video-214727386_456239095','_blank')">
-      <img src="https://avatars.mds.yandex.net/i?id=30fe922f35990e8e5d04bd297416a330_l-10163806-images-thumbs&n=13" alt="">
-      <div class="fg-overlay"></div>
-      <div class="fg-info"><div class="fg-y">2023</div><div class="fg-t ru">ДИАГНОЗ ВЕЗУЧАЯ</div><div class="fg-t en">DIAGNOSIS: LUCKY</div><div class="fg-g ru">КРИМИНАЛЬНАЯ КОМЕДИЯ</div><div class="fg-g en">CRIME COMEDY</div></div>
-    </div>
-    <div class="fg-item" onclick="openVimeo('1189150481')">
-      <img src="https://static.okko.tv/images/v4/3036ff41-dc97-420e-ac56-264b9665bcb5?presetId=4000&width=1200&height=630&scale=1&quality=80" alt="">
-      <div class="fg-overlay"></div>
-      <div class="fg-info"><div class="fg-y">2023</div><div class="fg-t ru">ТАМ, ГДЕ ЦВЕТЁТ ПОЛЫНЬ</div><div class="fg-t en">WHERE THE WORMWOOD BLOOMS</div><div class="fg-g ru">ТЁМНАЯ МИСТИКА</div><div class="fg-g en">DARK MYSTICISM</div></div>
-    </div>
-    <div class="fg-item" onclick="openVimeo('1189146929')">
-      <img src="https://cdn.mirage.ru/images/film/5000/big/s5398.jpg" alt="">
-      <div class="fg-overlay"></div>
-      <div class="fg-info"><div class="fg-y">2023</div><div class="fg-t ru">СЕРГИЙ ПРОТИВ НЕЧИСТИ: ШАБАШ</div><div class="fg-t en">SERGIY VS EVIL: WITCHES' SABBATH</div><div class="fg-g ru">ХОРРОР-ПАНК</div><div class="fg-g en">HORROR-PUNK</div></div>
-    </div>
-  </div>
+<div class="section-head">
+<div class="sh-num">01</div>
+<div class="sh-label ru">ФИЛЬМОГРАФИЯ</div>
+<div class="sh-label en">FILMOGRAPHY</div>
+<div class="sh-line"></div>
+</div>
+<div class="film-grid">
+<div class="fg-item" onclick="openYoutube('LvN3fe44O5s')">
+<img src="https://static.kinoafisha.info/k/trailers/1270/upload/trailers/ca78d28a4ada04ac58f80db9dcb58457.jpg" alt="">
+<div class="fg-overlay"></div>
+<div class="fg-info"><div class="fg-y">2025</div><div class="fg-t ru">ПИСЬМО ДЕДУ МОРОЗУ</div><div class="fg-t en">A LETTER TO SANTA</div><div class="fg-g ru">СЕМЕЙНОЕ КИНО</div><div class="fg-g en">FAMILY FILM</div></div>
+</div>
+<div class="fg-item" onclick="openYoutube('CITR_Z3nGZM')">
+<img src="https://avatars.mds.yandex.net/i?id=da2e1f3979e26dcf54fe4caabc40cfc9_l-7045590-images-thumbs&n=13" alt="">
+<div class="fg-overlay"></div>
+<div class="fg-info"><div class="fg-y">2025</div><div class="fg-t ru">СЕРГИЙ ПРОТИВ НЕЧИСТИ: ЗОВ ПРЕДКОВ</div><div class="fg-t en">SERGIY VS EVIL: ANCESTORS CALL</div><div class="fg-g ru">ХОРРОР-ПАНК</div><div class="fg-g en">HORROR-PUNK</div></div>
+</div>
+<div class="fg-item" onclick="openVimeo('1189150732')">
+<img src="https://www.kino-teatr.ru/movie/kadr/167346/1732161.jpg" alt="">
+<div class="fg-overlay"></div>
+<div class="fg-info"><div class="fg-y">2024</div><div class="fg-t ru">ЧЁРНЫЙ ЗАМОК</div><div class="fg-t en">THE BLACK CASTLE</div><div class="fg-g ru">ИСТОРИЧЕСКАЯ ДРАМА</div><div class="fg-g en">HISTORICAL DRAMA</div></div>
+</div>
+<div class="fg-item" onclick="window.open('https://vkvideo.ru/video-214727386_456239095','_blank')">
+<img src="https://avatars.mds.yandex.net/i?id=30fe922f35990e8e5d04bd297416a330_l-10163806-images-thumbs&n=13" alt="">
+<div class="fg-overlay"></div>
+<div class="fg-info"><div class="fg-y">2023</div><div class="fg-t ru">ДИАГНОЗ ВЕЗУЧАЯ</div><div class="fg-t en">DIAGNOSIS: LUCKY</div><div class="fg-g ru">КРИМИНАЛЬНАЯ КОМЕДИЯ</div><div class="fg-g en">CRIME COMEDY</div></div>
+</div>
+<div class="fg-item" onclick="openVimeo('1189150481')">
+<img src="https://static.okko.tv/images/v4/3036ff41-dc97-420e-ac56-264b9665bcb5?presetId=4000&width=1200&height=630&scale=1&quality=80" alt="">
+<div class="fg-overlay"></div>
+<div class="fg-info"><div class="fg-y">2023</div><div class="fg-t ru">ТАМ, ГДЕ ЦВЕТЁТ ПОЛЫНЬ</div><div class="fg-t en">WHERE THE WORMWOOD BLOOMS</div><div class="fg-g ru">ТЁМНАЯ МИСТИКА</div><div class="fg-g en">DARK MYSTICISM</div></div>
+</div>
+<div class="fg-item" onclick="openVimeo('1189146929')">
+<img src="https://cdn.mirage.ru/images/film/5000/big/s5398.jpg" alt="">
+<div class="fg-overlay"></div>
+<div class="fg-info"><div class="fg-y">2023</div><div class="fg-t ru">СЕРГИЙ ПРОТИВ НЕЧИСТИ: ШАБАШ</div><div class="fg-t en">SERGIY VS EVIL: WITCHES' SABBATH</div><div class="fg-g ru">ХОРРОР-ПАНК</div><div class="fg-g en">HORROR-PUNK</div></div>
+</div>
+</div>
 </section>
 
 <section id="s4" class="film-grid-section" style="padding-top:0;scroll-snap-align:start;">
-  <div class="film-grid">
-    <div class="fg-item" onclick="openYoutube('6lZa1POZ4Vs')">
-      <img src="https://www.kino-teatr.ru/movie/poster/149168/115123.jpg" alt="">
-      <div class="fg-overlay"></div>
-      <div class="fg-info"><div class="fg-y">2022</div><div class="fg-t ru">ШЕСТНАДЦАТЬ +</div><div class="fg-t en">SIXTEEN +</div><div class="fg-g ru">АЛЬМАНАХ</div><div class="fg-g en">ANTHOLOGY</div></div>
-    </div>
-    <div class="fg-item" onclick="openYoutube('fX2WtRy5dEA')">
-      <img src="https://toposrednik.ru/wp-content/uploads/2023/01/zz371-1-1024x715-1.jpg" alt="">
-      <div class="fg-overlay"></div>
-      <div class="fg-info"><div class="fg-y">2022</div><div class="fg-t ru">СЕРГИЙ ПРОТИВ НЕЧИСТИ</div><div class="fg-t en">SERGIY VS EVIL</div><div class="fg-g ru">ПАНК-РОК СЕРИАЛ</div><div class="fg-g en">PUNK-ROCK SERIES</div></div>
-    </div>
-    <div class="fg-item" onclick="openYoutube('jXCbz1mbPD8')">
-      <img src="https://irecommend.ru/sites/default/files/imagecache/copyright1/user-images/237759/lGb6t9ade5ve4gP4QlvxeQ.jpg" alt="">
-      <div class="fg-overlay"></div>
-      <div class="fg-info"><div class="fg-y">2015</div><div class="fg-t ru">ЛОНДОНГРАД</div><div class="fg-t en">LONDONGRAD</div><div class="fg-g ru">СЕРИАЛ · ТНТ</div><div class="fg-g en">TV SERIES · TNT</div></div>
-    </div>
-    <div class="fg-item" onclick="openVimeo('1189109024')">
-      <img src="https://avatars.mds.yandex.net/get-kinopoisk-image/1777765/f614509f-ac41-4ce9-b770-8e9c6b27f9b9/1920x" alt="">
-      <div class="fg-overlay"></div>
-      <div class="fg-info"><div class="fg-y">2015</div><div class="fg-t ru">ВОЙНА ПОЛОВ</div><div class="fg-t en">WAR OF SEXES</div><div class="fg-g ru">КОМЕДИЯ</div><div class="fg-g en">COMEDY</div></div>
-    </div>
-    <div class="fg-item" onclick="openVimeo('1189149303')">
-      <img src="https://cdn.fishki.net/upload/users/2021/02/05/617549/caeb8ab4b08f0d150a126ef100e1727d.png" alt="">
-      <div class="fg-overlay"></div>
-      <div class="fg-info"><div class="fg-y">2011</div><div class="fg-t ru">САМЫЙ ЛУЧШИЙ ФИЛЬМ 3ДЭ</div><div class="fg-t en">THE BEST MOVIE 3D</div><div class="fg-g ru">КИНОТЕАТРАЛЬНЫЙ РЕЛИЗ</div><div class="fg-g en">THEATRICAL RELEASE</div></div>
-    </div>
-    <div class="fg-item" onclick="openVimeo('1189147888')">
-      <img src="https://media.kg-portal.ru/images/samyjluchshijfilm/samyjluchshijfilm_28.jpg" alt="">
-      <div class="fg-overlay"></div>
-      <div class="fg-info"><div class="fg-y">2008</div><div class="fg-t ru">САМЫЙ ЛУЧШИЙ ФИЛЬМ</div><div class="fg-t en">THE BEST MOVIE</div><div class="fg-g ru">КИНОТЕАТРАЛЬНЫЙ РЕЛИЗ</div><div class="fg-g en">THEATRICAL RELEASE</div></div>
-    </div>
-  </div>
-  <div class="film-grid" style="margin-top:2px;">
-    <div class="fg-item" onclick="openYoutube('kr8xmDCTDCg')">
-      <img src="https://irecommend.ru/sites/default/files/imagecache/copyright1/user-images/176432/Yr0JsnZDiICJSjEM36NRyw.jpg" alt="">
-      <div class="fg-overlay"></div>
-      <div class="fg-info"><div class="fg-y">2014</div><div class="fg-t ru">ЗАЛЁТЧИКИ</div><div class="fg-t en">THE FLY-BY GUYS</div><div class="fg-g ru">КОМЕДИЯ</div><div class="fg-g en">COMEDY</div></div>
-    </div>
-    <div class="fg-item" style="cursor:default;">
-      <img src="https://avatars.mds.yandex.net/i?id=b6d1ca19eddc41e8a8f60113832a3fc3_l-12652282-images-thumbs&n=13" alt="">
-      <div class="fg-overlay"></div>
-      <div class="fg-info"><div class="fg-y">2011</div><div class="fg-t ru">МОЛОДЁЖКА — ПИЛОТ</div><div class="fg-t en">JUNIOR LEAGUE — PILOT</div><div class="fg-g ru">КУЛЬТОВЫЙ СТИЛЬ</div><div class="fg-g en">ICONIC STYLE</div></div>
-    </div>
-    <div class="fg-item" onclick="openYoutube('vf7s1_d90CM')">
-      <img src="https://irecommend.ru/sites/default/files/imagecache/copyright1/user-images/2377857/k33GFX5LWP4cDfDM7kHd8Q.jpeg" alt="">
-      <div class="fg-overlay"></div>
-      <div class="fg-info"><div class="fg-y">2005</div><div class="fg-t ru">КЛУБ</div><div class="fg-t en">THE CLUB</div><div class="fg-g ru">ДЕБЮТ</div><div class="fg-g en">DEBUT</div></div>
-    </div>
-  </div>
+<div class="film-grid">
+<div class="fg-item" onclick="openYoutube('6lZa1POZ4Vs')">
+<img src="https://www.kino-teatr.ru/movie/poster/149168/115123.jpg" alt="">
+<div class="fg-overlay"></div>
+<div class="fg-info"><div class="fg-y">2022</div><div class="fg-t ru">ШЕСТНАДЦАТЬ +</div><div class="fg-t en">SIXTEEN +</div><div class="fg-g ru">АЛЬМАНАХ</div><div class="fg-g en">ANTHOLOGY</div></div>
+</div>
+<div class="fg-item" onclick="openYoutube('fX2WtRy5dEA')">
+<img src="https://toposrednik.ru/wp-content/uploads/2023/01/zz371-1-1024x715-1.jpg" alt="">
+<div class="fg-overlay"></div>
+<div class="fg-info"><div class="fg-y">2022</div><div class="fg-t ru">СЕРГИЙ ПРОТИВ НЕЧИСТИ</div><div class="fg-t en">SERGIY VS EVIL</div><div class="fg-g ru">ПАНК-РОК СЕРИАЛ</div><div class="fg-g en">PUNK-ROCK SERIES</div></div>
+</div>
+<div class="fg-item" onclick="openYoutube('jXCbz1mbPD8')">
+<img src="https://irecommend.ru/sites/default/files/imagecache/copyright1/user-images/237759/lGb6t9ade5ve4gP4QlvxeQ.jpg" alt="">
+<div class="fg-overlay"></div>
+<div class="fg-info"><div class="fg-y">2015</div><div class="fg-t ru">ЛОНДОНГРАД</div><div class="fg-t en">LONDONGRAD</div><div class="fg-g ru">СЕРИАЛ · ТНТ</div><div class="fg-g en">TV SERIES · TNT</div></div>
+</div>
+<div class="fg-item" onclick="openVimeo('1189109024')">
+<img src="https://avatars.mds.yandex.net/get-kinopoisk-image/1777765/f614509f-ac41-4ce9-b770-8e9c6b27f9b9/1920x" alt="">
+<div class="fg-overlay"></div>
+<div class="fg-info"><div class="fg-y">2015</div><div class="fg-t ru">ВОЙНА ПОЛОВ</div><div class="fg-t en">WAR OF SEXES</div><div class="fg-g ru">КОМЕДИЯ</div><div class="fg-g en">COMEDY</div></div>
+</div>
+<div class="fg-item" onclick="openVimeo('1189149303')">
+<img src="https://cdn.fishki.net/upload/users/2021/02/05/617549/caeb8ab4b08f0d150a126ef100e1727d.png" alt="">
+<div class="fg-overlay"></div>
+<div class="fg-info"><div class="fg-y">2011</div><div class="fg-t ru">САМЫЙ ЛУЧШИЙ ФИЛЬМ 3ДЭ</div><div class="fg-t en">THE BEST MOVIE 3D</div><div class="fg-g ru">КИНОТЕАТРАЛЬНЫЙ РЕЛИЗ</div><div class="fg-g en">THEATRICAL RELEASE</div></div>
+</div>
+<div class="fg-item" onclick="openVimeo('1189147888')">
+<img src="https://media.kg-portal.ru/images/samyjluchshijfilm/samyjluchshijfilm_28.jpg" alt="">
+<div class="fg-overlay"></div>
+<div class="fg-info"><div class="fg-y">2008</div><div class="fg-t ru">САМЫЙ ЛУЧШИЙ ФИЛЬМ</div><div class="fg-t en">THE BEST MOVIE</div><div class="fg-g ru">КИНОТЕАТРАЛЬНЫЙ РЕЛИЗ</div><div class="fg-g en">THEATRICAL RELEASE</div></div>
+</div>
+</div>
+<div class="film-grid" style="margin-top:2px;">
+<div class="fg-item" onclick="openYoutube('kr8xmDCTDCg')">
+<img src="https://irecommend.ru/sites/default/files/imagecache/copyright1/user-images/176432/Yr0JsnZDiICJSjEM36NRyw.jpg" alt="">
+<div class="fg-overlay"></div>
+<div class="fg-info"><div class="fg-y">2014</div><div class="fg-t ru">ЗАЛЁТЧИКИ</div><div class="fg-t en">THE FLY-BY GUYS</div><div class="fg-g ru">КОМЕДИЯ</div><div class="fg-g en">COMEDY</div></div>
+</div>
+<div class="fg-item" style="cursor:default;">
+<img src="https://avatars.mds.yandex.net/i?id=b6d1ca19eddc41e8a8f60113832a3fc3_l-12652282-images-thumbs&n=13" alt="">
+<div class="fg-overlay"></div>
+<div class="fg-info"><div class="fg-y">2011</div><div class="fg-t ru">МОЛОДЁЖКА — ПИЛОТ</div><div class="fg-t en">JUNIOR LEAGUE — PILOT</div><div class="fg-g ru">КУЛЬТОВЫЙ СТИЛЬ</div><div class="fg-g en">ICONIC STYLE</div></div>
+</div>
+<div class="fg-item" onclick="openYoutube('vf7s1_d90CM')">
+<img src="https://irecommend.ru/sites/default/files/imagecache/copyright1/user-images/2377857/k33GFX5LWP4cDfDM7kHd8Q.jpeg" alt="">
+<div class="fg-overlay"></div>
+<div class="fg-info"><div class="fg-y">2005</div><div class="fg-t ru">КЛУБ</div><div class="fg-t en">THE CLUB</div><div class="fg-g ru">ДЕБЮТ</div><div class="fg-g en">DEBUT</div></div>
+</div>
+</div>
 </section>
 
 <div class="ticker">
-  <div class="ticker-t">
-    <span>КИРИЛЛ КУЗИН</span><span>DIRECTOR</span><span>МОСКВА</span><span>С 1998</span><span>VISUAL STORYTELLER</span><span>14 ФИЛЬМОВ</span><span>50+ КЛИПОВ</span><span>10 ТВ-ПРОЕКТОВ</span>
-    <span>КИРИЛЛ КУЗИН</span><span>DIRECTOR</span><span>МОСКВА</span><span>С 1998</span><span>VISUAL STORYTELLER</span><span>14 ФИЛЬМОВ</span><span>50+ КЛИПОВ</span><span>10 ТВ-ПРОЕКТОВ</span>
-  </div>
+<div class="ticker-t">
+<span>КИРИЛЛ КУЗИН</span><span>DIRECTOR</span><span>МОСКВА</span><span>С 1998</span><span>VISUAL STORYTELLER</span><span>14 ФИЛЬМОВ</span><span>50+ КЛИПОВ</span><span>10 ТВ-ПРОЕКТОВ</span>
+<span>КИРИЛЛ КУЗИН</span><span>DIRECTOR</span><span>МОСКВА</span><span>С 1998</span><span>VISUAL STORYTELLER</span><span>14 ФИЛЬМОВ</span><span>50+ КЛИПОВ</span><span>10 ТВ-ПРОЕКТОВ</span>
+</div>
 </div>
 
 <section id="s5">
-  <div class="full-film" onclick="openYoutube('T7sb0jf-jKw')">
-    <img src="https://img.youtube.com/vi/T7sb0jf-jKw/mqdefault.jpg" alt="Агутин — Самба">
-    <div class="full-film-overlay"></div>
-    <div class="full-film-info">
-      <div class="ff-label">// MUSIC VIDEO</div>
-      <div class="ff-title ru">ЛЕОНИД АГУТИН —<br>«САМБА»</div>
-      <div class="ff-title en">LEONID AGUTIN —<br>"SAMBA"</div>
-      <div class="ff-genre">DIRECTED BY KIRILL KUZIN</div>
-    </div>
-    <div class="ff-play">▶</div>
-  </div>
+<div class="full-film" onclick="openYoutube('T7sb0jf-jKw')">
+<img src="https://img.youtube.com/vi/T7sb0jf-jKw/mqdefault.jpg" alt="Агутин — Самба">
+<div class="full-film-overlay"></div>
+<div class="full-film-info">
+<div class="ff-label">// MUSIC VIDEO</div>
+<div class="ff-title ru">ЛЕОНИД АГУТИН —<br>«САМБА»</div>
+<div class="ff-title en">LEONID AGUTIN —<br>"SAMBA"</div>
+<div class="ff-genre">DIRECTED BY KIRILL KUZIN</div>
+</div>
+<div class="ff-play">▶</div>
+</div>
 </section>
 
 <section id="s6" class="clips-grid-section">
-  <div class="section-head">
-    <div class="sh-num">02</div>
-    <div class="sh-label ru">КЛИПЫ</div>
-    <div class="sh-label en">MUSIC VIDEOS</div>
-    <div class="sh-line"></div>
-  </div>
-  <div class="clips-grid">
-    <div class="cg-item" onclick="openVimeo('545254917')">
-      <img src="https://i.ytimg.com/vi/CTZqzjo-7Jg/maxresdefault.jpg" alt="">
-      <div class="cg-overlay"></div>
-      <div class="cg-info"><div class="cg-a ru">ЛЕОНИД АГУТИН</div><div class="cg-a en">LEONID AGUTIN</div><div class="cg-t">«ПО ТЕБЕ СКУЧАЮТ БАРЫ»</div></div>
-    </div>
-    <div class="cg-item" onclick="openYoutube('qoCqd56lMa8')">
-      <img src="https://img.youtube.com/vi/qoCqd56lMa8/mqdefault.jpg" alt="">
-      <div class="cg-overlay"></div>
-      <div class="cg-info"><div class="cg-a">LEONID AGUTIN</div><div class="cg-t">«FUNKY CHA»</div></div>
-    </div>
-    <div class="cg-item" onclick="openYoutube('kSwX5UJK3Oc')">
-      <img src="https://img.youtube.com/vi/kSwX5UJK3Oc/mqdefault.jpg" alt="">
-      <div class="cg-overlay"></div>
-      <div class="cg-info"><div class="cg-a ru">ЛЕОНИД АГУТИН</div><div class="cg-a en">LEONID AGUTIN</div><div class="cg-t">«ВКЛЮЧИТЕ СВЕТ»</div></div>
-    </div>
-    <div class="cg-item" onclick="openYoutube('jlOV7qsLGRg')">
-      <img src="https://img.youtube.com/vi/jlOV7qsLGRg/mqdefault.jpg" alt="">
-      <div class="cg-overlay"></div>
-      <div class="cg-info"><div class="cg-a ru">АГУТИН И ВАРУМ</div><div class="cg-a en">AGUTIN & VARUM</div><div class="cg-t">«Я НЕ ТОТ, ТЫ НЕ ТА»</div></div>
-    </div>
-    <div class="cg-item" onclick="openVimeo('234075161')">
-      <img src="https://i.ytimg.com/vi/I1urigRe0KQ/maxresdefault.jpg" alt="">
-      <div class="cg-overlay"></div>
-      <div class="cg-info"><div class="cg-a ru">АНЖЕЛИКА ВАРУМ</div><div class="cg-a en">ANZHELIKA VARUM</div><div class="cg-t">«ДЕВОЧКИ»</div></div>
-    </div>
-    <div class="cg-item" onclick="openVimeo('336313086')">
-      <img src="https://i.ytimg.com/vi/8UDwgPVKb30/maxresdefault.jpg" alt="">
-      <div class="cg-overlay"></div>
-      <div class="cg-info"><div class="cg-a ru">ОТПЕТЫЕ МОШЕННИКИ И АГУТИН</div><div class="cg-a en">OTPETYE MOSHENNIKI & AGUTIN</div><div class="cg-t">«90'S»</div></div>
-    </div>
-    <div class="cg-item" onclick="openYoutube('m72GWoBgw9o')">
-      <img src="https://img.youtube.com/vi/m72GWoBgw9o/mqdefault.jpg" alt="">
-      <div class="cg-overlay"></div>
-      <div class="cg-info"><div class="cg-a ru">БИ-2 И АГАТА КРИСТИ</div><div class="cg-a en">BI-2 & AGATA KRISTI</div><div class="cg-t">«ВСЁ, КАК ОН СКАЗАЛ»</div></div>
-    </div>
-    <div class="cg-item" onclick="openYoutube('xR_O6OXa_4Y')">
-      <img src="https://img.youtube.com/vi/xR_O6OXa_4Y/mqdefault.jpg" alt="">
-      <div class="cg-overlay"></div>
-      <div class="cg-info"><div class="cg-a ru">ДМИТРИЙ МАЛИКОВ</div><div class="cg-a en">DMITRY MALIKOV</div><div class="cg-t">«ДВА ПИСТОЛЕТА»</div></div>
-    </div>
-    <div class="cg-item" onclick="openVimeo('1192726997')">
-      <img src="https://tekst-pesni.online/wp-content/uploads/2021/01/getImage7-4.jpg" alt="">
-      <div class="cg-overlay"></div>
-      <div class="cg-info"><div class="cg-a ru">МУМИЙ ТРОЛЛЬ</div><div class="cg-a en">MUMIY TROLL</div><div class="cg-t">«РЕВОЛЮЦИЯ»</div></div>
-    </div>
-    <div class="cg-item" onclick="openYoutube('xcI_cYQ0KSo')">
-      <img src="https://img.youtube.com/vi/xcI_cYQ0KSo/mqdefault.jpg" alt="">
-      <div class="cg-overlay"></div>
-      <div class="cg-info"><div class="cg-a ru">ЛИГАЛАЙЗ</div><div class="cg-a en">LIGALAIZ</div><div class="cg-t">«БУДУЩИЕ МАМЫ»</div></div>
-    </div>
-    <div class="cg-item" onclick="openYoutube('mW1t9m1ePto')">
-      <img src="https://i.ytimg.com/vi/FW7Q_UehI-k/maxresdefault.jpg" alt="">
-      <div class="cg-overlay"></div>
-      <div class="cg-info"><div class="cg-a ru">ВИНОГРАД</div><div class="cg-a en">VINOGRAD</div><div class="cg-t">«НЕБО НАД НАМИ»</div></div>
-    </div>
-    <div class="cg-item" onclick="openYoutube('p-TWZpckrJw')">
-      <img src="https://youix.com/contents/videos_screenshots/11000/11682/preview.jpg" alt="">
-      <div class="cg-overlay"></div>
-      <div class="cg-info"><div class="cg-a ru">ОЛЬГА РОМАНОВСКАЯ</div><div class="cg-a en">OLGA ROMANOVSKAYA</div><div class="cg-t">«ТАЙНАЯ ЛЮБОВЬ»</div></div>
-    </div>
-    <div class="cg-item" onclick="openYoutube('DIac05tWDBY')">
-      <img src="https://img.youtube.com/vi/DIac05tWDBY/mqdefault.jpg" alt="">
-      <div class="cg-overlay"></div>
-      <div class="cg-info"><div class="cg-a ru">ПАВЕЛ ВОЛЯ</div><div class="cg-a en">PAVEL VOLYA</div><div class="cg-t">«ОФИГЕННО»</div></div>
-    </div>
-  </div>
+<div class="section-head">
+<div class="sh-num">02</div>
+<div class="sh-label ru">КЛИПЫ</div>
+<div class="sh-label en">MUSIC VIDEOS</div>
+<div class="sh-line"></div>
+</div>
+<div class="clips-grid">
+<div class="cg-item" onclick="openVimeo('545254917')">
+<img src="https://i.ytimg.com/vi/CTZqzjo-7Jg/maxresdefault.jpg" alt="">
+<div class="cg-overlay"></div>
+<div class="cg-info"><div class="cg-a ru">ЛЕОНИД АГУТИН</div><div class="cg-a en">LEONID AGUTIN</div><div class="cg-t">«ПО ТЕБЕ СКУЧАЮТ БАРЫ»</div></div>
+</div>
+<div class="cg-item" onclick="openYoutube('qoCqd56lMa8')">
+<img src="https://img.youtube.com/vi/qoCqd56lMa8/mqdefault.jpg" alt="">
+<div class="cg-overlay"></div>
+<div class="cg-info"><div class="cg-a">LEONID AGUTIN</div><div class="cg-t">«FUNKY CHA»</div></div>
+</div>
+<div class="cg-item" onclick="openYoutube('kSwX5UJK3Oc')">
+<img src="https://img.youtube.com/vi/kSwX5UJK3Oc/mqdefault.jpg" alt="">
+<div class="cg-overlay"></div>
+<div class="cg-info"><div class="cg-a ru">ЛЕОНИД АГУТИН</div><div class="cg-a en">LEONID AGUTIN</div><div class="cg-t">«ВКЛЮЧИТЕ СВЕТ»</div></div>
+</div>
+<div class="cg-item" onclick="openYoutube('jlOV7qsLGRg')">
+<img src="https://img.youtube.com/vi/jlOV7qsLGRg/mqdefault.jpg" alt="">
+<div class="cg-overlay"></div>
+<div class="cg-info"><div class="cg-a ru">АГУТИН И ВАРУМ</div><div class="cg-a en">AGUTIN & VARUM</div><div class="cg-t">«Я НЕ ТОТ, ТЫ НЕ ТА»</div></div>
+</div>
+<div class="cg-item" onclick="openVimeo('234075161')">
+<img src="https://i.ytimg.com/vi/I1urigRe0KQ/maxresdefault.jpg" alt="">
+<div class="cg-overlay"></div>
+<div class="cg-info"><div class="cg-a ru">АНЖЕЛИКА ВАРУМ</div><div class="cg-a en">ANZHELIKA VARUM</div><div class="cg-t">«ДЕВОЧКИ»</div></div>
+</div>
+<div class="cg-item" onclick="openVimeo('336313086')">
+<img src="https://i.ytimg.com/vi/8UDwgPVKb30/maxresdefault.jpg" alt="">
+<div class="cg-overlay"></div>
+<div class="cg-info"><div class="cg-a ru">ОТПЕТЫЕ МОШЕННИКИ И АГУТИН</div><div class="cg-a en">OTPETYE MOSHENNIKI & AGUTIN</div><div class="cg-t">«90'S»</div></div>
+</div>
+<div class="cg-item" onclick="openYoutube('m72GWoBgw9o')">
+<img src="https://img.youtube.com/vi/m72GWoBgw9o/mqdefault.jpg" alt="">
+<div class="cg-overlay"></div>
+<div class="cg-info"><div class="cg-a ru">БИ-2 И АГАТА КРИСТИ</div><div class="cg-a en">BI-2 & AGATA KRISTI</div><div class="cg-t">«ВСЁ, КАК ОН СКАЗАЛ»</div></div>
+</div>
+<div class="cg-item" onclick="openYoutube('xR_O6OXa_4Y')">
+<img src="https://img.youtube.com/vi/xR_O6OXa_4Y/mqdefault.jpg" alt="">
+<div class="cg-overlay"></div>
+<div class="cg-info"><div class="cg-a ru">ДМИТРИЙ МАЛИКОВ</div><div class="cg-a en">DMITRY MALIKOV</div><div class="cg-t">«ДВА ПИСТОЛЕТА»</div></div>
+</div>
+<div class="cg-item" onclick="openVimeo('1192726997')">
+<img src="https://tekst-pesni.online/wp-content/uploads/2021/01/getImage7-4.jpg" alt="">
+<div class="cg-overlay"></div>
+<div class="cg-info"><div class="cg-a ru">МУМИЙ ТРОЛЛЬ</div><div class="cg-a en">MUMIY TROLL</div><div class="cg-t">«РЕВОЛЮЦИЯ»</div></div>
+</div>
+<div class="cg-item" onclick="openYoutube('xcI_cYQ0KSo')">
+<img src="https://img.youtube.com/vi/xcI_cYQ0KSo/mqdefault.jpg" alt="">
+<div class="cg-overlay"></div>
+<div class="cg-info"><div class="cg-a ru">ЛИГАЛАЙЗ</div><div class="cg-a en">LIGALAIZ</div><div class="cg-t">«БУДУЩИЕ МАМЫ»</div></div>
+</div>
+<div class="cg-item" onclick="openYoutube('mW1t9m1ePto')">
+<img src="https://i.ytimg.com/vi/FW7Q_UehI-k/maxresdefault.jpg" alt="">
+<div class="cg-overlay"></div>
+<div class="cg-info"><div class="cg-a ru">ВИНОГРАД</div><div class="cg-a en">VINOGRAD</div><div class="cg-t">«НЕБО НАД НАМИ»</div></div>
+</div>
+<div class="cg-item" onclick="openYoutube('p-TWZpckrJw')">
+<img src="https://youix.com/contents/videos_screenshots/11000/11682/preview.jpg" alt="">
+<div class="cg-overlay"></div>
+<div class="cg-info"><div class="cg-a ru">ОЛЬГА РОМАНОВСКАЯ</div><div class="cg-a en">OLGA ROMANOVSKAYA</div><div class="cg-t">«ТАЙНАЯ ЛЮБОВЬ»</div></div>
+</div>
+<div class="cg-item" onclick="openYoutube('DIac05tWDBY')">
+<img src="https://img.youtube.com/vi/DIac05tWDBY/mqdefault.jpg" alt="">
+<div class="cg-overlay"></div>
+<div class="cg-info"><div class="cg-a ru">ПАВЕЛ ВОЛЯ</div><div class="cg-a en">PAVEL VOLYA</div><div class="cg-t">«ОФИГЕННО»</div></div>
+</div>
+</div>
 </section>
 
 <section id="s7">
-  <div class="reel-title">COMEDY<span>SHOWREEL</span></div>
-  <div class="reel-player">
-    <!-- ИСПРАВЛЕНО: youtu.be → youtube.com/embed -->
-    <iframe src="https://www.youtube.com/embed/pgWqzlX_FVU" allow="autoplay; fullscreen" allowfullscreen></iframe>
-  </div>
+<div class="reel-title">COMEDY<span>SHOWREEL</span></div>
+<div class="reel-player">
+<!-- ИСПРАВЛЕНО: youtu.be → youtube.com/embed -->
+<iframe src="https://www.youtube.com/embed/pgWqzlX_FVU" allow="autoplay; fullscreen" allowfullscreen></iframe>
+</div>
 </section>
 
 <section id="s8">
-  <div class="cl">
-    <div class="cl-name">КИРИЛЛ <span>/</span><br>КУЗИН</div>
-    <div class="cl-sub ru">РЕЖИССЁР · МОСКВА · С 1998</div>
-    <div class="cl-sub en">DIRECTOR · MOSCOW · SINCE 1998</div>
-  </div>
-  <div class="cr">
-    <div class="ci">
-      <div class="ci-ico">☎</div>
-      <div><div class="ci-lbl ru">ТЕЛЕФОН</div><div class="ci-lbl en">PHONE</div><div class="ci-val">+7 903 769-72-43</div></div>
-    </div>
-    <div class="ci">
-      <div class="ci-ico">@</div>
-      <div>
-        <div class="ci-lbl">EMAIL</div>
-        <div class="ci-val"><a href="mailto:bildyev@gmail.com">BILDYEV@GMAIL.COM</a></div>
-      </div>
-    </div>
-    <div class="ci">
-      <div class="ci-ico">▶</div>
-      <div><div class="ci-lbl">SHOWREEL</div><div class="ci-val"><a href="#s7">СМОТРЕТЬ ВЫШЕ</a></div></div>
-    </div>
-    <div class="ci">
-      <div class="ci-ico">IN</div>
-      <div>
-        <div class="ci-lbl">LINKEDIN</div>
-        <div class="ci-val"><a href="https://linkedin.com/in/kirillkuzin" target="_blank">KIRILLKUZIN</a></div>
-      </div>
-    </div>
-  </div>
+<div class="cl">
+<div class="cl-name">КИРИЛЛ <span>/</span><br>КУЗИН</div>
+<div class="cl-sub ru">РЕЖИССЁР · МОСКВА · С 1998</div>
+<div class="cl-sub en">DIRECTOR · MOSCOW · SINCE 1998</div>
+</div>
+<div class="cr">
+<div class="ci">
+<div class="ci-ico">☎</div>
+<div><div class="ci-lbl ru">ТЕЛЕФОН</div><div class="ci-lbl en">PHONE</div><div class="ci-val">+7 903 769-72-43</div></div>
+</div>
+<div class="ci">
+<div class="ci-ico">@</div>
+<div>
+<div class="ci-lbl">EMAIL</div>
+<div class="ci-val"><a href="mailto:bildyev@gmail.com">BILDYEV@GMAIL.COM</a></div>
+</div>
+</div>
+<div class="ci">
+<div class="ci-ico">▶</div>
+<div><div class="ci-lbl">SHOWREEL</div><div class="ci-val"><a href="#s7">СМОТРЕТЬ ВЫШЕ</a></div></div>
+</div>
+<div class="ci">
+<div class="ci-ico">IN</div>
+<div>
+<div class="ci-lbl">LINKEDIN</div>
+<div class="ci-val"><a href="https://linkedin.com/in/kirillkuzin" target="_blank">KIRILLKUZIN</a></div>
+</div>
+</div>
+</div>
 </section>
 
 <footer>
-  <div class="fc">© 2026 KIRILL KUZIN. ALL RIGHTS RESERVED.</div>
-  <div class="fr">MADE WITHOUT <span>COMPROMISE</span></div>
+<div class="fc">© 2026 KIRILL KUZIN. ALL RIGHTS RESERVED.</div>
+<div class="fr">MADE WITHOUT <span>COMPROMISE</span></div>
 </footer>
 
 <script>
 const cur = document.getElementById('cur');
 document.addEventListener('mousemove', function(e) {
-  cur.style.left = e.clientX + 'px';
-  cur.style.top = e.clientY + 'px';
+cur.style.left = e.clientX + 'px';
+cur.style.top = e.clientY + 'px';
 });
 document.querySelectorAll('.full-film,.fg-item,.cg-item,.nl,.lng span,.modal-x,a,.ff-play').forEach(function(el) {
-  el.addEventListener('mouseenter', function() { cur.classList.add('h'); });
-  el.addEventListener('mouseleave', function() { cur.classList.remove('h'); });
+el.addEventListener('mouseenter', function() { cur.classList.add('h'); });
+el.addEventListener('mouseleave', function() { cur.classList.remove('h'); });
 });
 window.addEventListener('scroll', function() {
-  document.getElementById('nav').classList.toggle('s', window.scrollY > 80);
+document.getElementById('nav').classList.toggle('s', window.scrollY > 80);
 });
 function openVimeo(id) {
-  document.getElementById('msrc').src = 'https://player.vimeo.com/video/'+id+'?autoplay=1&badge=0';
-  document.getElementById('modal').classList.add('on');
-  document.body.style.overflow = 'hidden';
+document.getElementById('msrc').src = 'https://player.vimeo.com/video/'+id+'?autoplay=1&badge=0';
+document.getElementById('modal').classList.add('on');
+document.body.style.overflow = 'hidden';
 }
 function openYoutube(id) {
-  document.getElementById('msrc').src = 'https://www.youtube.com/embed/'+id+'?autoplay=1';
-  document.getElementById('modal').classList.add('on');
-  document.body.style.overflow = 'hidden';
+document.getElementById('msrc').src = 'https://www.youtube.com/embed/'+id+'?autoplay=1';
+document.getElementById('modal').classList.add('on');
+document.body.style.overflow = 'hidden';
 }
 function closeModal(e) {
-  if (e && e.target !== document.getElementById('modal') && !e.target.classList.contains('modal-x')) return;
-  document.getElementById('msrc').src = '';
-  document.getElementById('modal').classList.remove('on');
-  document.body.style.overflow = '';
+if (e && e.target !== document.getElementById('modal') && !e.target.classList.contains('modal-x')) return;
+document.getElementById('msrc').src = '';
+document.getElementById('modal').classList.remove('on');
+document.body.style.overflow = '';
 }
 document.addEventListener('keydown', function(e) { if (e.key==='Escape') closeModal(); });
 function setLang(lang) {
-  document.getElementById('bru').classList.toggle('on', lang==='ru');
-  document.getElementById('ben').classList.toggle('on', lang==='en');
-  if (lang==='en') document.getElementById('body').classList.add('en');
-  else document.getElementById('body').classList.remove('en');
+document.getElementById('bru').classList.toggle('on', lang==='ru');
+document.getElementById('ben').classList.toggle('on', lang==='en');
+if (lang==='en') document.getElementById('body').classList.add('lang-en');
+else document.getElementById('body').classList.remove('lang-en');
 }
 </script>
 </body>
